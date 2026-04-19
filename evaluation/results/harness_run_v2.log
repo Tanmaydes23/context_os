@@ -1,0 +1,313 @@
+/home/teaching/miniconda3/envs/context_os/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/teaching/miniconda3/envs/context_os/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+
+============================================================
+CONTEXTOS OFFICIAL EVALUATION — Tests A–E
+============================================================
+
+────────────────────────────────────────────────────────────
+Test A: The Forgotten Allergy
+  Allergy stated turn 1 must survive 14 turns of tool noise
+  Turns: 16
+  Turn  1: I want to plan a 5-day trip to Tokyo and Kyoto. Budget is $3...
+         → 9425ms
+  Turn  2: Search for direct flights to Tokyo...
+WARNING:pipeline.layer6_graph:Layer 6 dynamic lookup failed for 'Kyoto': https://links.duckduckgo.com/d.js?q=what+food+is+Kyoto+known+for&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-82916931108164198375588654591055006636&bing_market=wt-WT&ex=-1 202 Ratelimit
+WARNING:pipeline.layer6_graph:Layer 6 dynamic lookup failed for 'Tokyo': https://links.duckduckgo.com/d.js?q=what+food+is+Tokyo+known+for&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-5663075152542935673559980547377646291&bing_market=wt-WT&ex=-1 202 Ratelimit
+ERROR:agent.tools:web_search failed for 'Search for direct flights to Tokyo tokyo': https://links.duckduckgo.com/d.js?q=Search+for+direct+flights+to+Tokyo+tokyo&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-135194702709472726087097803016783238368&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 6725ms
+  Turn  3: Book the JAL flight...
+ERROR:agent.tools:web_search failed for 'Book the JAL flight tokyo': https://links.duckduckgo.com/d.js?q=Book+the+JAL+flight+tokyo&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-317551514111638836041169664528427232465&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 4603ms
+  Turn  4: Find hotels in Tokyo...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://links.duckduckgo.com/d.js?q=Find+hotels+in+Tokyo+tokyo+price+rating+review&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-67167581515174637492367868314288579159&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 16716ms
+  Turn  5: Book the Park Hyatt for 3 nights...
+         → 2246ms
+  Turn  6: What are the best areas to stay in Kyoto?...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://links.duckduckgo.com/d.js?q=What+are+the+best+areas+to+stay+in+Kyoto%3F+tokyo+price+rating+review&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-58658299240902244242477836167979836800&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 15968ms
+  Turn  7: Find hotels in Kyoto...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://links.duckduckgo.com/d.js?q=Find+hotels+in+Kyoto+tokyo+price+rating+review&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-192492902857107418623986706944376402894&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 14128ms
+  Turn  8: Book a ryokan for 2 nights...
+         → 10116ms
+  Turn  9: What is the transit like between Tokyo and Kyoto?...
+         → 9918ms
+  Turn 10: Book a shinkansen ticket...
+WARNING:pipeline.layer6_graph:Layer 6 dynamic lookup failed for 'shinkansen': https://links.duckduckgo.com/d.js?q=what+food+is+shinkansen+known+for&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-64375950497207355298542852038878213026&bing_market=wt-WT&ex=-1 202 Ratelimit
+ERROR:agent.tools:web_search failed for 'Book a shinkansen ticket tokyo': https://links.duckduckgo.com/d.js?q=Book+a+shinkansen+ticket+tokyo&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-257174617924849151329536794303747353303&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 1189ms
+  Turn 11: What are popular activities in Tokyo?...
+         → 309ms
+  Turn 12: What temples should I visit in Kyoto?...
+         → 677ms
+  Turn 13: Find restaurants near Fushimi Inari...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://duckduckgo.com/ 202 Ratelimit
+         → 7298ms
+  Turn 14: What is the best time to visit Arashiyama?...
+         → 9354ms
+  Turn 15: What currency should I use in Japan?...
+         → 10796ms
+  Turn 16: Find me the best dinner spots in Tsukiji area...
+WARNING:pipeline.layer6_graph:Layer 6 dynamic lookup failed for 'Tsukiji': https://links.duckduckgo.com/d.js?q=what+food+is+Tsukiji+known+for&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-105664490741892539398796996342090540948&bing_market=wt-WT&ex=-1 202 Ratelimit
+WARNING:pipeline.layer6_graph:Layer 6 dynamic lookup failed for 'Japan': https://duckduckgo.com/ 202 Ratelimit
+WARNING:pipeline.layer6_graph:Layer 6 dynamic lookup failed for 'Arashiyama': https://links.duckduckgo.com/d.js?q=what+food+is+Arashiyama+known+for&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-224185125316537643715498661905956422861&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 11666ms
+
+  Result: ✓ PASS
+  Output: User: What currency should I use in Japan?
+
+Assistant: When visiting Japan, you'll primarily use the...
+  [checkpoint saved → evaluation/results/checkpoint.json]
+
+────────────────────────────────────────────────────────────
+Test B: The Budget Anchor
+  Running budget must be tracked correctly across 20 turns
+  Turns: 17
+  Turn  1: Planning Italy — Rome, Florence, Amalfi Coast. 7 days, max b...
+         → 10375ms
+  Turn  2: Find flights to Rome...
+ERROR:agent.tools:web_search failed for 'Find flights to Rome italy': https://links.duckduckgo.com/d.js?q=Find+flights+to+Rome+italy&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-287878230821052075614173926659278217185&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 11075ms
+  Turn  3: Book the cheapest flight — $800...
+ERROR:agent.tools:web_search failed for 'Book the cheapest flight — $800 italy': https://links.duckduckgo.com/d.js?q=Book+the+cheapest+flight+%E2%80%94+%24800+italy&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-136112037568005934810573343442235475871&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 7497ms
+  Turn  4: Find hotels in Rome...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://duckduckgo.com/ 202 Ratelimit
+         → 6669ms
+  Turn  5: Book a 3-night hotel in Rome for $400 total...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://duckduckgo.com/ 202 Ratelimit
+         → 8941ms
+  Turn  6: What are the must-see sights in Rome?...
+         → 4765ms
+  Turn  7: Book the Colosseum tour...
+         → 8196ms
+  Turn  8: Find restaurants in Trastevere...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://duckduckgo.com/ 202 Ratelimit
+         → 11511ms
+  Turn  9: How do I get from Rome to Florence?...
+         → 10654ms
+  Turn 10: Book a train from Rome to Florence...
+ERROR:agent.tools:web_search failed for 'Book a train from Rome to Florence italy': https://duckduckgo.com/ 202 Ratelimit
+         → 10797ms
+  Turn 11: Find hotels in Florence...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://duckduckgo.com/ 202 Ratelimit
+         → 17190ms
+  Turn 12: Book 2 nights in Florence for $350 total...
+         → 10579ms
+  Turn 13: What should I see in Florence?...
+         → 10312ms
+  Turn 14: Find the Uffizi Gallery tickets...
+ERROR:agent.tools:web_search failed for 'Find the Uffizi Gallery tickets italy': https://links.duckduckgo.com/d.js?q=Find+the+Uffizi+Gallery+tickets+italy&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-204089524807771827418140477325324332848&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 10577ms
+  Turn 15: How do I get to the Amalfi Coast from Florence?...
+         → 10453ms
+  Turn 16: What is the best base for the Amalfi Coast?...
+         → 8448ms
+  Turn 17: Find me a hotel on the Amalfi Coast...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://duckduckgo.com/ 202 Ratelimit
+         → 11245ms
+
+  Result: ✗ FAIL
+  Failure: Agent suggested expensive hotel without flagging $950 remaining
+  Output: Budget: Total $350.00 | Spent $0.00 | Remaining $350.00
+No places found for: Find me a hotel on the Amalfi Coast italy
+
+[RECENT CONTEXT]
+Budget: Total $350.00 | Spent $0.00 | Remaining $350.00
+Search ...
+  [checkpoint saved → evaluation/results/checkpoint.json]
+
+────────────────────────────────────────────────────────────
+Test C: The Pivot
+  After pivot to Switzerland, zero Bali content should appear
+  Turns: 17
+  Turn  1: Plan me a beach vacation in Bali for next month....
+         → 7239ms
+  Turn  2: Find flights to Bali...
+ERROR:agent.tools:web_search failed for 'Find flights to Bali bali': https://links.duckduckgo.com/d.js?q=Find+flights+to+Bali+bali&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-36821366209316897304518624620451922019&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 6488ms
+  Turn  3: Find beach resorts in Seminyak...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://duckduckgo.com/ 202 Ratelimit
+         → 9012ms
+  Turn  4: What surf lessons are available in Bali?...
+         → 7359ms
+  Turn  5: Find temple tours in Ubud...
+         → 7688ms
+  Turn  6: What is the best beach in Bali?...
+         → 10224ms
+  Turn  7: Actually, scratch Bali entirely. Let's do Switzerland instea...
+         → 10423ms
+  Turn  8: Find flights to Zurich...
+ERROR:agent.tools:web_search failed for 'Find flights to Zurich bali': https://links.duckduckgo.com/d.js?q=Find+flights+to+Zurich+bali&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-328631746992484185428812056638178228859&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 14725ms
+  Turn  9: What are the best mountain destinations in Switzerland?...
+         → 10485ms
+  Turn 10: Find hotels in Interlaken...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://links.duckduckgo.com/d.js?q=Find+hotels+in+Interlaken+bali+price+rating+review&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-288536166003144527337472312426939246201&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 16139ms
+  Turn 11: What hiking trails are near Grindelwald?...
+         → 3385ms
+  Turn 12: Find restaurants in Zurich...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://links.duckduckgo.com/d.js?q=Find+restaurants+in+Zurich+bali+price+rating+review&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-221859446863667240595763679357844748653&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 6570ms
+  Turn 13: What is the weather like in the Swiss Alps?...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://links.duckduckgo.com/d.js?q=What+is+the+weather+like+in+the+Swiss+Alps%3F+bali+price+rating+review&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-79628937348141806890092591694261117538&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 7931ms
+  Turn 14: Book a hotel in Interlaken...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://links.duckduckgo.com/d.js?q=Book+a+hotel+in+Interlaken+bali+price+rating+review&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-20949009848641184507100740477416580042&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 7182ms
+  Turn 15: What activities are available in Lucerne?...
+         → 2280ms
+  Turn 16: Find day trips from Zurich...
+         → 2773ms
+  Turn 17: Summarize my trip plan so far....
+         → 1152ms
+
+  Result: ✗ FAIL
+  Failure: Summary contained Bali references after pivot to Switzerland
+  Output: Based on the provided context, your current trip involves planning day trips from Zurich, searching for flights to Bali, and finding hotels in Interlaken. You have not yet received any specific recomm...
+  [checkpoint saved → evaluation/results/checkpoint.json]
+
+────────────────────────────────────────────────────────────
+Test D: The Logistics Puzzle
+  Wednesday 2pm meeting means train must be Thursday morning
+  Turns: 15
+  Turn  1: I'm planning 6 days: 3 in Paris, 3 in Amsterdam. I have a me...
+         → 3635ms
+  Turn  2: Find flights to Paris...
+ERROR:agent.tools:web_search failed for 'Find flights to Paris paris': https://links.duckduckgo.com/d.js?q=Find+flights+to+Paris+paris&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-266357679682986788082214825366913244613&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 4403ms
+  Turn  3: Find hotels near the Eiffel Tower in Paris...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://links.duckduckgo.com/d.js?q=Find+hotels+near+the+Eiffel+Tower+in+Paris+paris+price+rating+review&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-221415981821080979380875582596679007139&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 9581ms
+  Turn  4: Book a hotel for 3 nights...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://links.duckduckgo.com/d.js?q=Book+a+hotel+for+3+nights+paris+price+rating+review&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-311267638367081088230746170108040351899&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 16116ms
+  Turn  5: What should I see in Paris?...
+         → 3558ms
+  Turn  6: Find restaurants near the Louvre...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://links.duckduckgo.com/d.js?q=Find+restaurants+near+the+Louvre+paris+price+rating+review&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-312903296610420747078135255618378294375&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 8372ms
+  Turn  7: What is the best way to get around Paris?...
+         → 10028ms
+  Turn  8: Book the Louvre tickets...
+ERROR:agent.tools:web_search failed for 'Book the Louvre tickets paris': https://links.duckduckgo.com/d.js?q=Book+the+Louvre+tickets+paris&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-325573104741265897233424499668542990886&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 10702ms
+  Turn  9: Find hotels in Amsterdam...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://links.duckduckgo.com/d.js?q=Find+hotels+in+Amsterdam+paris+price+rating+review&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-248713554543562525797815899630071400443&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 15741ms
+  Turn 10: Book a canal-side hotel in Amsterdam for 3 nights...
+WARNING:agent.tools:DuckDuckGo places fallback failed: https://links.duckduckgo.com/d.js?q=Book+a+canal-side+hotel+in+Amsterdam+for+3+nights+paris+price+rating+review&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-159442411506811264824521971263682604581&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 11614ms
+  Turn 11: What are the must-see sights in Amsterdam?...
+         → 9997ms
+  Turn 12: Find Anne Frank House tickets...
+ERROR:agent.tools:web_search failed for 'Find Anne Frank House tickets paris': https://links.duckduckgo.com/d.js?q=Find+Anne+Frank+House+tickets+paris&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-277881389870151486830704625926684033475&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 11466ms
+  Turn 13: Find canal tour options in Amsterdam...
+         → 10723ms
+  Turn 14: Book the Anne Frank House tickets...
+ERROR:agent.tools:web_search failed for 'Book the Anne Frank House tickets paris': https://duckduckgo.com/ 202 Ratelimit
+         → 10332ms
+  Turn 15: When should I take the train from Paris to Amsterdam?...
+ERROR:agent.tools:web_search failed for 'When should I take the train from Paris to Amsterdam? paris': https://links.duckduckgo.com/d.js?q=When+should+I+take+the+train+from+Paris+to+Amsterdam%3F+paris&kl=wt-wt&l=wt-wt&p=&s=0&df=&vqd=4-92697389547135528842791360748026014096&bing_market=wt-WT&ex=-1 202 Ratelimit
+         → 10609ms
+
+  Result: ✗ FAIL
+  Failure: Agent suggested Wednesday departure despite 2pm Wednesday meeting
+  Output: Given your constraints, I would suggest taking the train from Paris to Amsterdam the day after your meeting. This would ensure that you have enough time to enjoy your trip in Amsterdam without feeling...
+  [checkpoint saved → evaluation/results/checkpoint.json]
+
+────────────────────────────────────────────────────────────
+Test E: The Contradiction Detector
+  15 activities for 3-day trip violates max-2-per-day preference
+  Turns: 17
+  Turn  1: I want a relaxing trip. No packed schedules. Max 2 activitie...
+         → 16131ms
+  Turn  2: I'm planning 3 days in Barcelona....
+         → 9427ms
+  Turn  3: What are the best things to do in Barcelona?...
+         → 9489ms
+  Turn  4: Tell me about Sagrada Familia...
+         → 10693ms
+  Turn  5: Tell me about Park Güell...
+         → 9993ms
+  Turn  6: Tell me about the Gothic Quarter...
+         → 9961ms
+  Turn  7: Tell me about Camp Nou...
+         → 9737ms
+  Turn  8: Tell me about Barceloneta Beach...
+         → 10014ms
+  Turn  9: Tell me about Picasso Museum...
+         → 9701ms
+  Turn 10: Tell me about La Boqueria market...
+         → 10183ms
+  Turn 11: Tell me about Montjuïc castle...
+         → 10004ms
+  Turn 12: Tell me about Tibidabo amusement park...
+         → 8697ms
+  Turn 13: Tell me about Casa Batlló...
+         → 9158ms
+  Turn 14: Tell me about El Born neighborhood...
+         → 9367ms
+  Turn 15: Tell me about Palau de la Música...
+         → 9987ms
+  Turn 16: Tell me about MACBA museum...
+         → 10269ms
+  Turn 17: OK book all of these for my 3-day trip...
+         → 10068ms
+
+  Result: ✓ PASS
+  Output: Your request for all three activities for your 3-day trip to Barcelona is not in accordance with the...
+  [checkpoint saved → evaluation/results/checkpoint.json]
+
+────────────────────────────────────────────────────────────
+Computing metrics...
+
+============================================================
+RESULTS SUMMARY
+============================================================
+
+Task Success:          2/5 tests passed (40%)
+  Test A: ✓ The Forgotten Allergy
+  Test B: ✗ The Budget Anchor
+  Test C: ✗ The Pivot
+  Test D: ✗ The Logistics Puzzle
+  Test E: ✓ The Contradiction Detector
+
+Token Efficiency:
+  Mean compression ratio:    11.68x
+  Peak compression ratio:    54.73x
+  Baseline overflow turns:   22
+  Compressed overflow turns: 0
+
+Factual Retention:
+  Allergy retention rate:    19.5%
+  Budget retention rate:     40.2%
+  Constraint lost at turns:  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+
+Coherence:
+  Mean coherence score:      98.5%
+  Incoherent turns:          []
+
+Tool Call Quality:
+  Mean tool compression:     1.0x
+  Total tokens saved:        0
+  web_search            1.0x  (14 calls)
+  places_search         1.0x  (19 calls)
+  weather_fetch         1.0x  (1 calls)
+  budget_tracker        1.0x  (7 calls)
+
+Long Horizon Robustness (turn 15+):
+  Robustness rate:           41.7%
+  First constraint loss:     15
+
+Metrics exported: evaluation/results/metrics_report.csv
+Full results:    evaluation/results/eval_20260418_154414.json
+Checkpoint removed (run complete).
+============================================================
+

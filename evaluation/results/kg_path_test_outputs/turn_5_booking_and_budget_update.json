@@ -1,0 +1,21 @@
+{
+  "turn_id": 5,
+  "label": "booking_and_budget_update",
+  "input_turn": "I booked a JAL flight for $650. Remaining budget should update. I also need a hotel in Kyoto for 3 nights around $120 per night.",
+  "prompt_sent": "Extract entities and relations as JSON: I booked a JAL flight for $650. Remaining budget should update. I also need a hotel in Kyoto for 3 nights around $120 per night.",
+  "raw_output": "{\n  \"bookings\": [\n    {\n      \"airline\": \"JAL\",\n      \"flight_number\": \"12345\",\n      \"price\": 650\n    }\n  ],\n  \"remaining_budget\": 1000\n}\n\n{\n  \"hotel_name\": \"Hotel Gion Nanba\",\n  \"address\": \"1-1-1, Gion, Kyoto, Japan\",\n  \"price\": 120,\n  \"nights\": 3\n}",
+  "parseable": true,
+  "parse_strategy": "bracket_slice",
+  "parsed_object": [
+    {
+      "airline": "JAL",
+      "flight_number": "12345",
+      "price": 650
+    }
+  ],
+  "token_counts": {
+    "input": 83,
+    "output": 112
+  },
+  "inference_ms": 10906
+}

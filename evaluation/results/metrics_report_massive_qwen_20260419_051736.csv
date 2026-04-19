@@ -1,0 +1,35 @@
+category,metric,value,unit,notes
+token_efficiency,mean_compression_ratio,9.057,x,Higher is better
+token_efficiency,peak_compression_ratio,14.02,x,
+token_efficiency,mean_token_savings_pct,88.0,%,vs uncompressed baseline
+token_efficiency,mean_total_tokens,252.5,tokens,
+token_efficiency,mean_baseline_tokens,2296.5,tokens,
+token_efficiency,total_tokens_saved,8176,tokens,across all test cases
+token_efficiency,baseline_overflow_turns,0,turns,Baseline would exceed 15K ctx
+token_efficiency,compressed_overflow_turns,0,turns,Should be 0
+task_success,pass_rate,0.75,fraction,Target: ≥0.80
+task_success,tests_passed,3/4,/total,
+task_success,scenario_A_medical_symptom,0.75,fraction,3/4 pass
+task_success,priority_p0,1.0,fraction,3/3 pass
+task_success,priority_p1,0.0,fraction,0/1 pass
+factual_retention,allergy_retention_rate,1.0,fraction,Target: 1.0
+factual_retention,budget_retention_rate,1.0,fraction,Target: 1.0
+factual_retention,temporal_retention_rate,1.0,fraction,Target: 1.0
+coherence,mean_coherence_score,1.0,0-1,Target: ≥0.80
+coherence,incoherent_turns_count,0,turns,Lower is better
+tool_call_quality,mean_tool_compression,1.0,x,
+tool_call_quality,total_tokens_saved,8176,tokens,
+long_horizon_robustness,robustness_rate,1.0,fraction,Turn 12+ constraint retention
+long_horizon_robustness,first_constraint_loss_turn,6,turn,Never = perfect
+constraint_accuracy,violation_rate,0.0,fraction,Target: 0.0
+constraint_accuracy,total_violations,0,count,Lower is better
+constraint_accuracy,allergy_violations,0,count,
+constraint_accuracy,budget_violations,0,count,
+constraint_accuracy,temporal_violations,0,count,
+recall_accuracy,explicit_constraint_recall,1.0,fraction,Clearly-stated constraints
+recall_accuracy,implicit_constraint_recall,0.0,fraction,Inferred/hinted constraints
+recall_accuracy,recall_gap,1.0,fraction,explicit - implicit
+context_quality,mean_csnr,0.043,ratio,Constraint signal-to-noise ratio (higher=denser)
+context_quality,mean_cdr,0.65,fraction,Compression distortion rate (lower=less distortion)
+latency,mean_trigger_turn_ms,5025.9,ms,Trigger-turn end-to-end
+latency,p95_trigger_turn_ms,6374.9,ms,

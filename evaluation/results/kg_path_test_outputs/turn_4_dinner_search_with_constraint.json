@@ -1,0 +1,75 @@
+{
+  "turn_id": 4,
+  "label": "dinner_search_with_constraint",
+  "input_turn": "Find me a dinner restaurant near Tsukiji market in Tokyo. Shellfish allergy still applies. Budget for dinner is under $40.",
+  "prompt_sent": "Extract entities and relations as JSON: Find me a dinner restaurant near Tsukiji market in Tokyo. Shellfish allergy still applies. Budget for dinner is under $40.",
+  "raw_output": "{\n  \"entities\": [\n    {\n      \"name\": \"Tsukiji market\",\n      \"location\": {\n        \"name\": \"Tsukiji market\",\n        \"address\": \"Tokyo\"\n      }\n    },\n    {\n      \"name\": \"restaurant\",\n      \"location\": {\n        \"name\": \"restaurant\",\n        \"address\": \"Tokyo\"\n      }\n    },\n    {\n      \"name\": \"shellfish\",\n      \"location\": {\n        \"name\": \"restaurant\",\n        \"address\": \"Tokyo\"\n      }\n    },\n    {\n      \"name\": \"allergy\",\n      \"location\": {\n        \"name\": \"restaurant\",\n        \"address\": \"Tokyo\"\n      }\n    },\n    {\n      \"name\": \"budget\",\n      \"location\": {\n        \"name\": \"restaurant\",\n        \"address\": \"Tokyo\"\n      }\n    }\n  ],\n  \"relations\": [\n    {\n      \"source\": \"Tsukiji market\",\n      \"target\": \"restaurant\",\n      \"relation\": \"nearby\"\n    },\n    {\n      \"source\": \"restaurant\",\n      \"target\": \"shellfish\",\n      \"relation\": \"allergen\"\n    },\n    {\n      \"source\": \"restaurant\",\n      \"target\": \"allergy\",\n      \"relation\": \"allergy\"\n    },\n    {\n      \"source\": \"restaurant\",\n      \"target\": \"budget\",\n      \"relation\": \"budget\"\n    }\n  ]\n}",
+  "parseable": true,
+  "parse_strategy": "direct",
+  "parsed_object": {
+    "entities": [
+      {
+        "name": "Tsukiji market",
+        "location": {
+          "name": "Tsukiji market",
+          "address": "Tokyo"
+        }
+      },
+      {
+        "name": "restaurant",
+        "location": {
+          "name": "restaurant",
+          "address": "Tokyo"
+        }
+      },
+      {
+        "name": "shellfish",
+        "location": {
+          "name": "restaurant",
+          "address": "Tokyo"
+        }
+      },
+      {
+        "name": "allergy",
+        "location": {
+          "name": "restaurant",
+          "address": "Tokyo"
+        }
+      },
+      {
+        "name": "budget",
+        "location": {
+          "name": "restaurant",
+          "address": "Tokyo"
+        }
+      }
+    ],
+    "relations": [
+      {
+        "source": "Tsukiji market",
+        "target": "restaurant",
+        "relation": "nearby"
+      },
+      {
+        "source": "restaurant",
+        "target": "shellfish",
+        "relation": "allergen"
+      },
+      {
+        "source": "restaurant",
+        "target": "allergy",
+        "relation": "allergy"
+      },
+      {
+        "source": "restaurant",
+        "target": "budget",
+        "relation": "budget"
+      }
+    ]
+  },
+  "token_counts": {
+    "input": 74,
+    "output": 321
+  },
+  "inference_ms": 25921
+}

@@ -1,0 +1,66 @@
+{
+  "turn_id": 1,
+  "label": "allergy_budget_cities",
+  "input_turn": "Planning a trip to Tokyo and Kyoto next month. My total budget is $3,000. I'm severely allergic to shellfish.",
+  "prompt_sent": "Extract entities and relations as JSON: Planning a trip to Tokyo and Kyoto next month. My total budget is $3,000. I'm severely allergic to shellfish.",
+  "raw_output": "{\n  \"entities\": [\n    {\n      \"name\": \"Tokyo\",\n      \"description\": \"Capital city of Japan, located in the eastern part of the country.\"\n    },\n    {\n      \"name\": \"Kyoto\",\n      \"description\": \"Cultural and historical city in western Japan, known for its well-preserved traditional architecture and gardens.\"\n    },\n    {\n      \"name\": \"Budget\",\n      \"description\": \"Total amount allocated for the trip, $3,000.\"\n    },\n    {\n      \"name\": \"Allergy\",\n      \"description\": \"Severe allergy to shellfish.\"\n    }\n  ],\n  \"relations\": [\n    {\n      \"source\": \"Tokyo\",\n      \"target\": \"Kyoto\",\n      \"relation\": \"located_in\"\n    },\n    {\n      \"source\": \"Kyoto\",\n      \"target\": \"Tokyo\",\n      \"relation\": \"located_in\"\n    },\n    {\n      \"source\": \"Tokyo\",\n      \"target\": \"Budget\",\n      \"relation\": \"allocated_for\"\n    },\n    {\n      \"source\": \"Budget\",\n      \"target\": \"Tokyo\",\n      \"relation\": \"allocated_for\"\n    },\n    {\n      \"source\": \"Budget\",\n      \"target\": \"Kyoto\",\n      \"relation\": \"allocated_for\"\n    },\n    {\n      \"source\": \"Budget\",\n      \"target\": \"Allergy\",\n      \"relation\": \"allergic_to\"\n    }\n  ]\n}",
+  "parseable": true,
+  "parse_strategy": "direct",
+  "parsed_object": {
+    "entities": [
+      {
+        "name": "Tokyo",
+        "description": "Capital city of Japan, located in the eastern part of the country."
+      },
+      {
+        "name": "Kyoto",
+        "description": "Cultural and historical city in western Japan, known for its well-preserved traditional architecture and gardens."
+      },
+      {
+        "name": "Budget",
+        "description": "Total amount allocated for the trip, $3,000."
+      },
+      {
+        "name": "Allergy",
+        "description": "Severe allergy to shellfish."
+      }
+    ],
+    "relations": [
+      {
+        "source": "Tokyo",
+        "target": "Kyoto",
+        "relation": "located_in"
+      },
+      {
+        "source": "Kyoto",
+        "target": "Tokyo",
+        "relation": "located_in"
+      },
+      {
+        "source": "Tokyo",
+        "target": "Budget",
+        "relation": "allocated_for"
+      },
+      {
+        "source": "Budget",
+        "target": "Tokyo",
+        "relation": "allocated_for"
+      },
+      {
+        "source": "Budget",
+        "target": "Kyoto",
+        "relation": "allocated_for"
+      },
+      {
+        "source": "Budget",
+        "target": "Allergy",
+        "relation": "allergic_to"
+      }
+    ]
+  },
+  "token_counts": {
+    "input": 73,
+    "output": 320
+  },
+  "inference_ms": 26246
+}

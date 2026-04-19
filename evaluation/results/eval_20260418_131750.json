@@ -1,0 +1,954 @@
+{
+  "timestamp": "2026-04-18T13:17:50.120162",
+  "test_results": [
+    {
+      "test_id": "A",
+      "name": "The Forgotten Allergy",
+      "passed": false,
+      "output": "Title: 10 Best Dinner Spots in Tsukiji Area, Tokyo - Yelp\nSummary: Explore the best dining options in Tsukiji, Tokyo, with Yelp's curated list.\n\nYou can book a shinkansen ticket at the following link: https://smart-ex.jp/en/lp/app/\n\nSummary: Explore the best dining options in Tsukiji, Tokyo, with Yelp's curated list.\n\nYou can book a shinkansen ticket at the following link: https://smart-ex.jp/en/lp/app/\n\nSummary: Explore the best dining options in Tsukiji, Tokyo, with Yelp's curated list.\n\nYou c",
+      "error": null
+    },
+    {
+      "test_id": "B",
+      "name": "The Budget Anchor",
+      "passed": false,
+      "output": "Title: Affordable Flights, Airline Tickets & Airfare Deals\nDescription: Find cheap flights to Italy on KAYAK and compare prices across multiple airlines.\nURL: https://www.kayak.com/flights\n\nResult: to Best Train From to ... on to, same other major ://heworksso : Florence\n\nTitle: Tickets | Uffizi Galleries\nDescription: Discover the rich history, art, and architecture of Florence with Uffizi Gallery tickets.\nURL: https://www.uffizi.it/en/tickets\n\nResult: to Best Train From to ... on to, same other",
+      "error": null
+    },
+    {
+      "test_id": "C",
+      "name": "The Pivot",
+      "passed": true,
+      "output": "Title: Day Trips from Zurich to Lucerne and Surrounding Areas\n\nSummary: Zurich, the capital of Switzerland, is a great base for exploring the beautiful Swiss city of Lucerne. Here are some popular day trip options from Zurich to Lucerne and its surrounding areas:\n\n1. Lucerne: Visit the Chapel Bridge, Lucerne Cathedral, and the Lion Monument. Enjoy scenic boat tours, take a cable car ride to the top of Mount Pilatus, or explore the charming Old Town.\n\n2. Mount Pilatus: Take a scenic boat ride on ",
+      "error": null
+    },
+    {
+      "test_id": "D",
+      "name": "The Logistics Puzzle",
+      "passed": false,
+      "output": "There are no options available for taking the train from Paris to Amsterdam at the present time. I suggest checking the SNCF website or a travel booking site for the most accurate and up-to-date information on train times and prices.",
+      "error": null
+    },
+    {
+      "test_id": "E",
+      "name": "The Contradiction Detector",
+      "passed": true,
+      "output": "Based on the current request, I would recommend the following adjustments to your trip:\n\nDay 1:\n- Morning: Visit Casa Batll\u00f3\n- Afternoon: Explore the surrounding area, which offers several restaurants and cafes for relaxation\n- Evening: Enjoy the views of Barcelona from Montju\u00efc Hill\n\nDay 2:\n- Morning: Visit MACBA museum, which offers a variety of activities and exhibits\n- Afternoon: Consider taking a leisurely walk along La Rambla or a nearby park for some relaxation\n- Evening: Enjoy a family d",
+      "error": null
+    }
+  ],
+  "all_metrics": {
+    "token_efficiency": {
+      "per_turn": [
+        {
+          "turn": 1,
+          "baseline": 26,
+          "compressed": 72,
+          "ratio": 0.36
+        },
+        {
+          "turn": 2,
+          "baseline": 650,
+          "compressed": 657,
+          "ratio": 0.99
+        },
+        {
+          "turn": 3,
+          "baseline": 1255,
+          "compressed": 736,
+          "ratio": 1.71
+        },
+        {
+          "turn": 4,
+          "baseline": 1874,
+          "compressed": 762,
+          "ratio": 2.46
+        },
+        {
+          "turn": 5,
+          "baseline": 2583,
+          "compressed": 775,
+          "ratio": 3.33
+        },
+        {
+          "turn": 6,
+          "baseline": 3279,
+          "compressed": 843,
+          "ratio": 3.89
+        },
+        {
+          "turn": 7,
+          "baseline": 4032,
+          "compressed": 865,
+          "ratio": 4.66
+        },
+        {
+          "turn": 8,
+          "baseline": 4219,
+          "compressed": 490,
+          "ratio": 8.61
+        },
+        {
+          "turn": 9,
+          "baseline": 5071,
+          "compressed": 880,
+          "ratio": 5.76
+        },
+        {
+          "turn": 10,
+          "baseline": 5618,
+          "compressed": 822,
+          "ratio": 6.83
+        },
+        {
+          "turn": 11,
+          "baseline": 6177,
+          "compressed": 834,
+          "ratio": 7.41
+        },
+        {
+          "turn": 12,
+          "baseline": 6891,
+          "compressed": 948,
+          "ratio": 7.27
+        },
+        {
+          "turn": 13,
+          "baseline": 7491,
+          "compressed": 962,
+          "ratio": 7.79
+        },
+        {
+          "turn": 14,
+          "baseline": 8117,
+          "compressed": 971,
+          "ratio": 8.36
+        },
+        {
+          "turn": 15,
+          "baseline": 8726,
+          "compressed": 965,
+          "ratio": 9.04
+        },
+        {
+          "turn": 16,
+          "baseline": 9309,
+          "compressed": 968,
+          "ratio": 9.62
+        },
+        {
+          "turn": 1,
+          "baseline": 18,
+          "compressed": 68,
+          "ratio": 0.26
+        },
+        {
+          "turn": 2,
+          "baseline": 839,
+          "compressed": 679,
+          "ratio": 1.24
+        },
+        {
+          "turn": 3,
+          "baseline": 1508,
+          "compressed": 675,
+          "ratio": 2.23
+        },
+        {
+          "turn": 4,
+          "baseline": 2334,
+          "compressed": 788,
+          "ratio": 2.96
+        },
+        {
+          "turn": 5,
+          "baseline": 3168,
+          "compressed": 814,
+          "ratio": 3.89
+        },
+        {
+          "turn": 6,
+          "baseline": 3898,
+          "compressed": 812,
+          "ratio": 4.8
+        },
+        {
+          "turn": 7,
+          "baseline": 4058,
+          "compressed": 459,
+          "ratio": 8.84
+        },
+        {
+          "turn": 8,
+          "baseline": 4253,
+          "compressed": 500,
+          "ratio": 8.51
+        },
+        {
+          "turn": 9,
+          "baseline": 4471,
+          "compressed": 524,
+          "ratio": 8.53
+        },
+        {
+          "turn": 10,
+          "baseline": 4733,
+          "compressed": 669,
+          "ratio": 7.07
+        },
+        {
+          "turn": 11,
+          "baseline": 5036,
+          "compressed": 694,
+          "ratio": 7.26
+        },
+        {
+          "turn": 12,
+          "baseline": 5652,
+          "compressed": 967,
+          "ratio": 5.84
+        },
+        {
+          "turn": 13,
+          "baseline": 6239,
+          "compressed": 975,
+          "ratio": 6.4
+        },
+        {
+          "turn": 14,
+          "baseline": 6844,
+          "compressed": 914,
+          "ratio": 7.49
+        },
+        {
+          "turn": 15,
+          "baseline": 7456,
+          "compressed": 941,
+          "ratio": 7.92
+        },
+        {
+          "turn": 16,
+          "baseline": 8019,
+          "compressed": 928,
+          "ratio": 8.64
+        },
+        {
+          "turn": 17,
+          "baseline": 8587,
+          "compressed": 943,
+          "ratio": 9.11
+        },
+        {
+          "turn": 1,
+          "baseline": 13,
+          "compressed": 19,
+          "ratio": 0.68
+        },
+        {
+          "turn": 2,
+          "baseline": 561,
+          "compressed": 732,
+          "ratio": 0.77
+        },
+        {
+          "turn": 3,
+          "baseline": 1103,
+          "compressed": 592,
+          "ratio": 1.86
+        },
+        {
+          "turn": 4,
+          "baseline": 1613,
+          "compressed": 579,
+          "ratio": 2.79
+        },
+        {
+          "turn": 5,
+          "baseline": 2180,
+          "compressed": 574,
+          "ratio": 3.8
+        },
+        {
+          "turn": 6,
+          "baseline": 2954,
+          "compressed": 714,
+          "ratio": 4.14
+        },
+        {
+          "turn": 7,
+          "baseline": 3733,
+          "compressed": 568,
+          "ratio": 6.57
+        },
+        {
+          "turn": 8,
+          "baseline": 4331,
+          "compressed": 541,
+          "ratio": 8.01
+        },
+        {
+          "turn": 9,
+          "baseline": 5002,
+          "compressed": 579,
+          "ratio": 8.64
+        },
+        {
+          "turn": 10,
+          "baseline": 5888,
+          "compressed": 743,
+          "ratio": 7.92
+        },
+        {
+          "turn": 11,
+          "baseline": 6585,
+          "compressed": 665,
+          "ratio": 9.9
+        },
+        {
+          "turn": 12,
+          "baseline": 7290,
+          "compressed": 686,
+          "ratio": 10.63
+        },
+        {
+          "turn": 13,
+          "baseline": 8178,
+          "compressed": 754,
+          "ratio": 10.85
+        },
+        {
+          "turn": 14,
+          "baseline": 9020,
+          "compressed": 755,
+          "ratio": 11.95
+        },
+        {
+          "turn": 15,
+          "baseline": 9466,
+          "compressed": 555,
+          "ratio": 17.06
+        },
+        {
+          "turn": 16,
+          "baseline": 10050,
+          "compressed": 613,
+          "ratio": 16.39
+        },
+        {
+          "turn": 17,
+          "baseline": 10808,
+          "compressed": 749,
+          "ratio": 14.43
+        },
+        {
+          "turn": 1,
+          "baseline": 31,
+          "compressed": 39,
+          "ratio": 0.79
+        },
+        {
+          "turn": 2,
+          "baseline": 852,
+          "compressed": 593,
+          "ratio": 1.44
+        },
+        {
+          "turn": 3,
+          "baseline": 1752,
+          "compressed": 660,
+          "ratio": 2.65
+        },
+        {
+          "turn": 4,
+          "baseline": 2680,
+          "compressed": 695,
+          "ratio": 3.86
+        },
+        {
+          "turn": 5,
+          "baseline": 3580,
+          "compressed": 673,
+          "ratio": 5.32
+        },
+        {
+          "turn": 6,
+          "baseline": 4499,
+          "compressed": 703,
+          "ratio": 6.4
+        },
+        {
+          "turn": 7,
+          "baseline": 5435,
+          "compressed": 715,
+          "ratio": 7.6
+        },
+        {
+          "turn": 8,
+          "baseline": 6369,
+          "compressed": 830,
+          "ratio": 7.67
+        },
+        {
+          "turn": 9,
+          "baseline": 7298,
+          "compressed": 822,
+          "ratio": 8.88
+        },
+        {
+          "turn": 10,
+          "baseline": 8232,
+          "compressed": 829,
+          "ratio": 9.93
+        },
+        {
+          "turn": 11,
+          "baseline": 9171,
+          "compressed": 835,
+          "ratio": 10.98
+        },
+        {
+          "turn": 12,
+          "baseline": 9714,
+          "compressed": 725,
+          "ratio": 13.4
+        },
+        {
+          "turn": 13,
+          "baseline": 10095,
+          "compressed": 655,
+          "ratio": 15.41
+        },
+        {
+          "turn": 14,
+          "baseline": 10857,
+          "compressed": 909,
+          "ratio": 11.94
+        },
+        {
+          "turn": 15,
+          "baseline": 11013,
+          "compressed": 490,
+          "ratio": 22.48
+        },
+        {
+          "turn": 1,
+          "baseline": 16,
+          "compressed": 64,
+          "ratio": 0.25
+        },
+        {
+          "turn": 2,
+          "baseline": 358,
+          "compressed": 220,
+          "ratio": 1.63
+        },
+        {
+          "turn": 3,
+          "baseline": 976,
+          "compressed": 359,
+          "ratio": 2.72
+        },
+        {
+          "turn": 4,
+          "baseline": 1592,
+          "compressed": 359,
+          "ratio": 4.43
+        },
+        {
+          "turn": 5,
+          "baseline": 2096,
+          "compressed": 309,
+          "ratio": 6.78
+        },
+        {
+          "turn": 6,
+          "baseline": 2589,
+          "compressed": 300,
+          "ratio": 8.63
+        },
+        {
+          "turn": 7,
+          "baseline": 3087,
+          "compressed": 293,
+          "ratio": 10.54
+        },
+        {
+          "turn": 8,
+          "baseline": 3656,
+          "compressed": 334,
+          "ratio": 10.95
+        },
+        {
+          "turn": 9,
+          "baseline": 4169,
+          "compressed": 314,
+          "ratio": 13.28
+        },
+        {
+          "turn": 10,
+          "baseline": 4630,
+          "compressed": 283,
+          "ratio": 16.36
+        },
+        {
+          "turn": 11,
+          "baseline": 5206,
+          "compressed": 353,
+          "ratio": 14.75
+        },
+        {
+          "turn": 12,
+          "baseline": 5720,
+          "compressed": 330,
+          "ratio": 17.33
+        },
+        {
+          "turn": 13,
+          "baseline": 6262,
+          "compressed": 337,
+          "ratio": 18.58
+        },
+        {
+          "turn": 14,
+          "baseline": 6656,
+          "compressed": 258,
+          "ratio": 25.8
+        },
+        {
+          "turn": 15,
+          "baseline": 7211,
+          "compressed": 333,
+          "ratio": 21.65
+        },
+        {
+          "turn": 16,
+          "baseline": 7619,
+          "compressed": 262,
+          "ratio": 29.08
+        },
+        {
+          "turn": 17,
+          "baseline": 8004,
+          "compressed": 242,
+          "ratio": 33.07
+        }
+      ],
+      "mean_ratio": 8.42,
+      "peak_ratio": 33.07,
+      "overflow_turns_baseline": 13,
+      "overflow_turns_compressed": 0
+    },
+    "task_success": {
+      "total": 5,
+      "passed": 2,
+      "failed": 3,
+      "rate": 0.4,
+      "by_test": {
+        "A": false,
+        "B": false,
+        "C": true,
+        "D": false,
+        "E": true
+      }
+    },
+    "factual_retention": {
+      "allergy_retention_rate": 0.195,
+      "budget_retention_rate": 0.402,
+      "constraint_loss_turns": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ]
+    },
+    "coherence": {
+      "mean_coherence": 1.0,
+      "incoherent_turns": [],
+      "per_turn_scores": [
+        {
+          "turn": 1,
+          "score": 1.0
+        },
+        {
+          "turn": 2,
+          "score": 1.0
+        },
+        {
+          "turn": 3,
+          "score": 1.0
+        },
+        {
+          "turn": 4,
+          "score": 1.0
+        },
+        {
+          "turn": 5,
+          "score": 1.0
+        },
+        {
+          "turn": 6,
+          "score": 1.0
+        },
+        {
+          "turn": 7,
+          "score": 1.0
+        },
+        {
+          "turn": 8,
+          "score": 1.0
+        },
+        {
+          "turn": 9,
+          "score": 1.0
+        },
+        {
+          "turn": 10,
+          "score": 1.0
+        },
+        {
+          "turn": 11,
+          "score": 1.0
+        },
+        {
+          "turn": 12,
+          "score": 1.0
+        },
+        {
+          "turn": 13,
+          "score": 1.0
+        },
+        {
+          "turn": 14,
+          "score": 1.0
+        },
+        {
+          "turn": 15,
+          "score": 1.0
+        },
+        {
+          "turn": 16,
+          "score": 1.0
+        },
+        {
+          "turn": 1,
+          "score": 1.0
+        },
+        {
+          "turn": 2,
+          "score": 1.0
+        },
+        {
+          "turn": 3,
+          "score": 1.0
+        },
+        {
+          "turn": 4,
+          "score": 1.0
+        },
+        {
+          "turn": 5,
+          "score": 1.0
+        },
+        {
+          "turn": 6,
+          "score": 1.0
+        },
+        {
+          "turn": 7,
+          "score": 1.0
+        },
+        {
+          "turn": 8,
+          "score": 1.0
+        },
+        {
+          "turn": 9,
+          "score": 1.0
+        },
+        {
+          "turn": 10,
+          "score": 1.0
+        },
+        {
+          "turn": 11,
+          "score": 1.0
+        },
+        {
+          "turn": 12,
+          "score": 1.0
+        },
+        {
+          "turn": 13,
+          "score": 1.0
+        },
+        {
+          "turn": 14,
+          "score": 1.0
+        },
+        {
+          "turn": 15,
+          "score": 1.0
+        },
+        {
+          "turn": 16,
+          "score": 1.0
+        },
+        {
+          "turn": 17,
+          "score": 1.0
+        },
+        {
+          "turn": 1,
+          "score": 1.0
+        },
+        {
+          "turn": 2,
+          "score": 1.0
+        },
+        {
+          "turn": 3,
+          "score": 1.0
+        },
+        {
+          "turn": 4,
+          "score": 1.0
+        },
+        {
+          "turn": 5,
+          "score": 1.0
+        },
+        {
+          "turn": 6,
+          "score": 1.0
+        },
+        {
+          "turn": 7,
+          "score": 1.0
+        },
+        {
+          "turn": 8,
+          "score": 1.0
+        },
+        {
+          "turn": 9,
+          "score": 1.0
+        },
+        {
+          "turn": 10,
+          "score": 1.0
+        },
+        {
+          "turn": 11,
+          "score": 1.0
+        },
+        {
+          "turn": 12,
+          "score": 1.0
+        },
+        {
+          "turn": 13,
+          "score": 1.0
+        },
+        {
+          "turn": 14,
+          "score": 1.0
+        },
+        {
+          "turn": 15,
+          "score": 1.0
+        },
+        {
+          "turn": 16,
+          "score": 1.0
+        },
+        {
+          "turn": 17,
+          "score": 1.0
+        },
+        {
+          "turn": 1,
+          "score": 1.0
+        },
+        {
+          "turn": 2,
+          "score": 1.0
+        },
+        {
+          "turn": 3,
+          "score": 1.0
+        },
+        {
+          "turn": 4,
+          "score": 1.0
+        },
+        {
+          "turn": 5,
+          "score": 1.0
+        },
+        {
+          "turn": 6,
+          "score": 1.0
+        },
+        {
+          "turn": 7,
+          "score": 1.0
+        },
+        {
+          "turn": 8,
+          "score": 1.0
+        },
+        {
+          "turn": 9,
+          "score": 1.0
+        },
+        {
+          "turn": 10,
+          "score": 1.0
+        },
+        {
+          "turn": 11,
+          "score": 1.0
+        },
+        {
+          "turn": 12,
+          "score": 1.0
+        },
+        {
+          "turn": 13,
+          "score": 1.0
+        },
+        {
+          "turn": 14,
+          "score": 1.0
+        },
+        {
+          "turn": 15,
+          "score": 1.0
+        },
+        {
+          "turn": 1,
+          "score": 1.0
+        },
+        {
+          "turn": 2,
+          "score": 1.0
+        },
+        {
+          "turn": 3,
+          "score": 1.0
+        },
+        {
+          "turn": 4,
+          "score": 1.0
+        },
+        {
+          "turn": 5,
+          "score": 1.0
+        },
+        {
+          "turn": 6,
+          "score": 1.0
+        },
+        {
+          "turn": 7,
+          "score": 1.0
+        },
+        {
+          "turn": 8,
+          "score": 1.0
+        },
+        {
+          "turn": 9,
+          "score": 1.0
+        },
+        {
+          "turn": 10,
+          "score": 1.0
+        },
+        {
+          "turn": 11,
+          "score": 1.0
+        },
+        {
+          "turn": 12,
+          "score": 1.0
+        },
+        {
+          "turn": 13,
+          "score": 1.0
+        },
+        {
+          "turn": 14,
+          "score": 1.0
+        },
+        {
+          "turn": 15,
+          "score": 1.0
+        },
+        {
+          "turn": 16,
+          "score": 1.0
+        },
+        {
+          "turn": 17,
+          "score": 1.0
+        }
+      ]
+    },
+    "tool_call_quality": {
+      "total_tool_calls": 41,
+      "mean_compression": 1.89,
+      "by_tool": {
+        "web_search": {
+          "calls": 14,
+          "mean_ratio": 3.6,
+          "tokens_saved": 6149
+        },
+        "places_search": {
+          "calls": 19,
+          "mean_ratio": 1.0,
+          "tokens_saved": 0
+        },
+        "weather_fetch": {
+          "calls": 1,
+          "mean_ratio": 1.0,
+          "tokens_saved": 0
+        },
+        "budget_tracker": {
+          "calls": 7,
+          "mean_ratio": 1.0,
+          "tokens_saved": 0
+        }
+      },
+      "total_tokens_saved": 6149
+    },
+    "long_horizon_robustness": {
+      "turns_evaluated": 12,
+      "constraints_present": 5,
+      "robustness_rate": 0.417,
+      "first_loss_turn": 15,
+      "context_overflow_turns": [
+        15,
+        16,
+        17,
+        15,
+        16,
+        17,
+        15
+      ]
+    }
+  }
+}

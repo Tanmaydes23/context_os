@@ -1,0 +1,32 @@
+category,metric,value,unit,notes
+token_efficiency,mean_compression_ratio,8.66,x,Higher is better
+token_efficiency,peak_compression_ratio,25.99,x,
+token_efficiency,baseline_overflow_turns,2,turns,Baseline failures
+token_efficiency,compressed_overflow_turns,0,turns,Should be 0
+task_success,pass_rate,0.88,fraction,Target: ≥0.80
+task_success,tests_passed,7,/8,
+task_success,test_A,1,pass/fail,
+task_success,test_B,1,pass/fail,
+task_success,test_C,1,pass/fail,
+task_success,test_D,1,pass/fail,
+task_success,test_E,1,pass/fail,
+task_success,test_F,1,pass/fail,
+task_success,test_G,1,pass/fail,
+task_success,test_H,0,pass/fail,
+factual_retention,allergy_retention_rate,1.0,fraction,Target: 1.0
+factual_retention,budget_retention_rate,1.0,fraction,Target: 1.0
+coherence,mean_coherence_score,1.0,0-1,Target: ≥0.80
+coherence,incoherent_turns_count,0,turns,Lower is better
+tool_call_quality,mean_tool_compression,1.0,x,
+tool_call_quality,total_tokens_saved,0,tokens,
+tool_call_quality,web_search_compression,1.0,x,14 calls
+tool_call_quality,places_search_compression,1.0,x,23 calls
+tool_call_quality,weather_fetch_compression,1.0,x,3 calls
+tool_call_quality,budget_tracker_compression,1.0,x,7 calls
+long_horizon_robustness,robustness_rate,0.417,fraction,Turn 15+ constraint retention
+long_horizon_robustness,first_constraint_loss_turn,15,turn,Never = perfect
+constraint_accuracy,violation_rate,0.0,fraction,Target: 0.0
+constraint_accuracy,total_violations,0,count,Lower is better
+constraint_accuracy,allergy_violations,0,count,
+constraint_accuracy,budget_violations,0,count,
+constraint_accuracy,temporal_violations,0,count,

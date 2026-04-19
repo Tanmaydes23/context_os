@@ -1,0 +1,24 @@
+category,metric,value,unit,notes
+token_efficiency,mean_compression_ratio,8.42,x,Higher is better
+token_efficiency,peak_compression_ratio,33.07,x,
+token_efficiency,baseline_overflow_turns,13,turns,Baseline failures
+token_efficiency,compressed_overflow_turns,0,turns,Should be 0
+task_success,pass_rate,0.4,fraction,Target: ≥0.80
+task_success,tests_passed,2,/5,
+task_success,test_A,0,pass/fail,
+task_success,test_B,0,pass/fail,
+task_success,test_C,1,pass/fail,
+task_success,test_D,0,pass/fail,
+task_success,test_E,1,pass/fail,
+factual_retention,allergy_retention_rate,0.195,fraction,Target: 1.0
+factual_retention,budget_retention_rate,0.402,fraction,Target: 1.0
+coherence,mean_coherence_score,1.0,0-1,Target: ≥0.80
+coherence,incoherent_turns_count,0,turns,Lower is better
+tool_call_quality,mean_tool_compression,1.89,x,
+tool_call_quality,total_tokens_saved,6149,tokens,
+tool_call_quality,web_search_compression,3.6,x,14 calls
+tool_call_quality,places_search_compression,1.0,x,19 calls
+tool_call_quality,weather_fetch_compression,1.0,x,1 calls
+tool_call_quality,budget_tracker_compression,1.0,x,7 calls
+long_horizon_robustness,robustness_rate,0.417,fraction,Turn 15+ constraint retention
+long_horizon_robustness,first_constraint_loss_turn,15,turn,Never = perfect

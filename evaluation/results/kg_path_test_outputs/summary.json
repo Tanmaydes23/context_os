@@ -1,0 +1,52 @@
+[
+  {
+    "turn_id": 1,
+    "label": "allergy_budget_cities",
+    "parseable": true,
+    "parse_strategy": "direct",
+    "input_tokens": 73,
+    "output_tokens": 320,
+    "inference_ms": 26246,
+    "output_file": "turn_1_allergy_budget_cities.json"
+  },
+  {
+    "turn_id": 2,
+    "label": "meeting_constraint",
+    "parseable": true,
+    "parse_strategy": "direct",
+    "input_tokens": 67,
+    "output_tokens": 189,
+    "inference_ms": 15459,
+    "output_file": "turn_2_meeting_constraint.json"
+  },
+  {
+    "turn_id": 3,
+    "label": "implicit_allergy_soft_prefs",
+    "parseable": true,
+    "parse_strategy": "direct",
+    "input_tokens": 70,
+    "output_tokens": 56,
+    "inference_ms": 6230,
+    "output_file": "turn_3_implicit_allergy_soft_prefs.json"
+  },
+  {
+    "turn_id": 4,
+    "label": "dinner_search_with_constraint",
+    "parseable": true,
+    "parse_strategy": "direct",
+    "input_tokens": 74,
+    "output_tokens": 321,
+    "inference_ms": 25921,
+    "output_file": "turn_4_dinner_search_with_constraint.json"
+  },
+  {
+    "turn_id": 5,
+    "label": "booking_and_budget_update",
+    "parseable": true,
+    "parse_strategy": "bracket_slice",
+    "input_tokens": 83,
+    "output_tokens": 112,
+    "inference_ms": 10906,
+    "output_file": "turn_5_booking_and_budget_update.json"
+  }
+]

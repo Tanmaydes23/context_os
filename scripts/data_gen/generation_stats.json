@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-04-18T14:09:46.452291",
+  "model_used": "glm-4.7-flash",
+  "total_sentences": 87,
+  "label1_count": 34,
+  "label0_count": 53,
+  "label1_rate": 0.391,
+  "tier1_count": 53,
+  "tier2_count": 29,
+  "tier3_count": 5,
+  "verification_passed": 82,
+  "verification_rejected": 5,
+  "output_path": "data_gen/scored_dataset.jsonl"
+}

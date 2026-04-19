@@ -1,0 +1,953 @@
+{
+  "timestamp": "2026-04-18T18:29:15.447201",
+  "test_results": [
+    {
+      "test_id": "A",
+      "name": "The Forgotten Allergy",
+      "passed": false,
+      "output": "[RECENT CONTEXT]\nNo places found for: Find restaurants near Fushimi Inari tokyo\nNo places found for: What are the best areas to stay in Kyoto?\nNo places found for: Find hotels in Tokyo tokyo\n\n[RECENT CONTEXT]\nBudget: Total $3,000.00 | Spent $0.00 | Remaining $3,000.00\nSearch unavailable. Query was: Search for direct flights to Tokyo tokyo\nSearch unavailable. Query was: Book the JAL flight tokyo\ntokyo\nBudget: Total $3,000.00 | Spent $0.00 | Remaining $3,000.00\nSearch unavailable. Query was: Book ",
+      "error": null
+    },
+    {
+      "test_id": "B",
+      "name": "The Budget Anchor",
+      "passed": false,
+      "output": "User: What is the best base for the Amalfi Coast?\n\nNo places found for: Find hotels on the Amalfi Coast.\nNo places found for: Find hotels in Naples.\n\n[RECENT CONTEXT]\nBudget: Total $2,500.00 | Spent $0.00 | Remaining $2,500.00\nSearch unavailable. Query was: Book a flight from Naples to Rome italy\nDeducted $350.00 for Book 2 nights in Rome for $350 total. Remaining budget: $2,150.00\n\n[CURRENT REQUEST]\nFind me a hotel on the Amalfi Coast",
+      "error": null
+    },
+    {
+      "test_id": "C",
+      "name": "The Pivot",
+      "passed": false,
+      "output": "No places found for: Summarize my trip plan so far\n\nNo places found for: Find flights to Bali\n\nNo places found for: Find hotels in Interlaken Bali\n\nNo places found for: Find restaurants in Zurich\n\nNo places found for: Book a hotel in Interlaken\n\nNo places found for: What is the weather like in the Swiss Alps?\n\nNo places found for: What activities are available in Lucerne?\n\n[RECENT CONTEXT]\nSearch unavailable. Query was: Summarize my trip plan so far\n\n[CURRENT REQUEST]\nFind day trips from Zurich\n",
+      "error": null
+    },
+    {
+      "test_id": "D",
+      "name": "The Logistics Puzzle",
+      "passed": false,
+      "output": "No places found for: When should I take the train from Paris to Amsterdam? paris\nSearch unavailable.",
+      "error": null
+    },
+    {
+      "test_id": "E",
+      "name": "The Contradiction Detector",
+      "passed": true,
+      "output": "[RECENT CONTEXT]\nMax 2 activities per day.\n\n[CURRENT REQUEST]\nI'm interested in visiting the MACBA museum.\n\n[IMMEDIATE CONTEXT]\nUser: Can you recommend any specific exhibits or collections at the MACBA museum?\nAssistant: [RECENT CONTEXT]\nMax 2 activities per day.\n\n[CURRENT REQUEST]\nCan you recommend any specific exhibits or collections at the MACBA museum?\n\n[IMMEDIATE CONTEXT]\nUser: I'm interested in learning about the history of the MACBA museum.\nAssistant: [RECENT CONTEXT]\nMax 2 activities per",
+      "error": null
+    }
+  ],
+  "all_metrics": {
+    "token_efficiency": {
+      "per_turn": [
+        {
+          "turn": 1,
+          "baseline": 26,
+          "compressed": 72,
+          "ratio": 0.36
+        },
+        {
+          "turn": 2,
+          "baseline": 886,
+          "compressed": 598,
+          "ratio": 1.48
+        },
+        {
+          "turn": 3,
+          "baseline": 1232,
+          "compressed": 323,
+          "ratio": 3.81
+        },
+        {
+          "turn": 4,
+          "baseline": 1635,
+          "compressed": 358,
+          "ratio": 4.57
+        },
+        {
+          "turn": 5,
+          "baseline": 2242,
+          "compressed": 492,
+          "ratio": 4.56
+        },
+        {
+          "turn": 6,
+          "baseline": 2593,
+          "compressed": 367,
+          "ratio": 7.07
+        },
+        {
+          "turn": 7,
+          "baseline": 3041,
+          "compressed": 401,
+          "ratio": 7.58
+        },
+        {
+          "turn": 8,
+          "baseline": 3798,
+          "compressed": 620,
+          "ratio": 6.13
+        },
+        {
+          "turn": 9,
+          "baseline": 4351,
+          "compressed": 496,
+          "ratio": 8.77
+        },
+        {
+          "turn": 10,
+          "baseline": 4599,
+          "compressed": 340,
+          "ratio": 13.53
+        },
+        {
+          "turn": 11,
+          "baseline": 5199,
+          "compressed": 605,
+          "ratio": 8.59
+        },
+        {
+          "turn": 12,
+          "baseline": 5924,
+          "compressed": 705,
+          "ratio": 8.4
+        },
+        {
+          "turn": 13,
+          "baseline": 6285,
+          "compressed": 428,
+          "ratio": 14.68
+        },
+        {
+          "turn": 14,
+          "baseline": 6827,
+          "compressed": 535,
+          "ratio": 12.76
+        },
+        {
+          "turn": 15,
+          "baseline": 7146,
+          "compressed": 391,
+          "ratio": 18.28
+        },
+        {
+          "turn": 16,
+          "baseline": 7614,
+          "compressed": 457,
+          "ratio": 16.66
+        },
+        {
+          "turn": 1,
+          "baseline": 18,
+          "compressed": 68,
+          "ratio": 0.26
+        },
+        {
+          "turn": 2,
+          "baseline": 449,
+          "compressed": 407,
+          "ratio": 1.1
+        },
+        {
+          "turn": 3,
+          "baseline": 624,
+          "compressed": 207,
+          "ratio": 3.01
+        },
+        {
+          "turn": 4,
+          "baseline": 743,
+          "compressed": 191,
+          "ratio": 3.89
+        },
+        {
+          "turn": 5,
+          "baseline": 984,
+          "compressed": 311,
+          "ratio": 3.16
+        },
+        {
+          "turn": 6,
+          "baseline": 1116,
+          "compressed": 229,
+          "ratio": 4.87
+        },
+        {
+          "turn": 7,
+          "baseline": 1541,
+          "compressed": 420,
+          "ratio": 3.67
+        },
+        {
+          "turn": 8,
+          "baseline": 2347,
+          "compressed": 669,
+          "ratio": 3.51
+        },
+        {
+          "turn": 9,
+          "baseline": 3140,
+          "compressed": 671,
+          "ratio": 4.68
+        },
+        {
+          "turn": 10,
+          "baseline": 3844,
+          "compressed": 675,
+          "ratio": 5.69
+        },
+        {
+          "turn": 11,
+          "baseline": 4500,
+          "compressed": 659,
+          "ratio": 6.83
+        },
+        {
+          "turn": 12,
+          "baseline": 4791,
+          "compressed": 430,
+          "ratio": 11.14
+        },
+        {
+          "turn": 13,
+          "baseline": 5369,
+          "compressed": 650,
+          "ratio": 8.26
+        },
+        {
+          "turn": 14,
+          "baseline": 5986,
+          "compressed": 712,
+          "ratio": 8.41
+        },
+        {
+          "turn": 15,
+          "baseline": 6156,
+          "compressed": 330,
+          "ratio": 18.65
+        },
+        {
+          "turn": 16,
+          "baseline": 6210,
+          "compressed": 266,
+          "ratio": 23.35
+        },
+        {
+          "turn": 17,
+          "baseline": 6533,
+          "compressed": 472,
+          "ratio": 13.84
+        },
+        {
+          "turn": 1,
+          "baseline": 13,
+          "compressed": 19,
+          "ratio": 0.68
+        },
+        {
+          "turn": 2,
+          "baseline": 577,
+          "compressed": 371,
+          "ratio": 1.56
+        },
+        {
+          "turn": 3,
+          "baseline": 1030,
+          "compressed": 338,
+          "ratio": 3.05
+        },
+        {
+          "turn": 4,
+          "baseline": 1582,
+          "compressed": 395,
+          "ratio": 4.01
+        },
+        {
+          "turn": 5,
+          "baseline": 2099,
+          "compressed": 372,
+          "ratio": 5.64
+        },
+        {
+          "turn": 6,
+          "baseline": 2941,
+          "compressed": 591,
+          "ratio": 4.98
+        },
+        {
+          "turn": 7,
+          "baseline": 3707,
+          "compressed": 529,
+          "ratio": 7.01
+        },
+        {
+          "turn": 8,
+          "baseline": 4308,
+          "compressed": 382,
+          "ratio": 11.28
+        },
+        {
+          "turn": 9,
+          "baseline": 4802,
+          "compressed": 340,
+          "ratio": 14.12
+        },
+        {
+          "turn": 10,
+          "baseline": 5340,
+          "compressed": 398,
+          "ratio": 13.42
+        },
+        {
+          "turn": 11,
+          "baseline": 6042,
+          "compressed": 530,
+          "ratio": 11.4
+        },
+        {
+          "turn": 12,
+          "baseline": 6765,
+          "compressed": 558,
+          "ratio": 12.12
+        },
+        {
+          "turn": 13,
+          "baseline": 7512,
+          "compressed": 595,
+          "ratio": 12.63
+        },
+        {
+          "turn": 14,
+          "baseline": 7983,
+          "compressed": 481,
+          "ratio": 16.6
+        },
+        {
+          "turn": 15,
+          "baseline": 8629,
+          "compressed": 633,
+          "ratio": 13.63
+        },
+        {
+          "turn": 16,
+          "baseline": 9228,
+          "compressed": 622,
+          "ratio": 14.84
+        },
+        {
+          "turn": 17,
+          "baseline": 9827,
+          "compressed": 625,
+          "ratio": 15.72
+        },
+        {
+          "turn": 1,
+          "baseline": 31,
+          "compressed": 39,
+          "ratio": 0.79
+        },
+        {
+          "turn": 2,
+          "baseline": 613,
+          "compressed": 361,
+          "ratio": 1.7
+        },
+        {
+          "turn": 3,
+          "baseline": 1175,
+          "compressed": 368,
+          "ratio": 3.19
+        },
+        {
+          "turn": 4,
+          "baseline": 1778,
+          "compressed": 404,
+          "ratio": 4.4
+        },
+        {
+          "turn": 5,
+          "baseline": 2207,
+          "compressed": 325,
+          "ratio": 6.79
+        },
+        {
+          "turn": 6,
+          "baseline": 2653,
+          "compressed": 335,
+          "ratio": 7.92
+        },
+        {
+          "turn": 7,
+          "baseline": 3121,
+          "compressed": 350,
+          "ratio": 8.92
+        },
+        {
+          "turn": 8,
+          "baseline": 3598,
+          "compressed": 353,
+          "ratio": 10.19
+        },
+        {
+          "turn": 9,
+          "baseline": 4165,
+          "compressed": 427,
+          "ratio": 9.75
+        },
+        {
+          "turn": 10,
+          "baseline": 4603,
+          "compressed": 346,
+          "ratio": 13.3
+        },
+        {
+          "turn": 11,
+          "baseline": 5086,
+          "compressed": 351,
+          "ratio": 14.49
+        },
+        {
+          "turn": 12,
+          "baseline": 5219,
+          "compressed": 196,
+          "ratio": 26.63
+        },
+        {
+          "turn": 13,
+          "baseline": 5350,
+          "compressed": 192,
+          "ratio": 27.86
+        },
+        {
+          "turn": 14,
+          "baseline": 5558,
+          "compressed": 255,
+          "ratio": 21.8
+        },
+        {
+          "turn": 15,
+          "baseline": 5993,
+          "compressed": 409,
+          "ratio": 14.65
+        },
+        {
+          "turn": 1,
+          "baseline": 16,
+          "compressed": 64,
+          "ratio": 0.25
+        },
+        {
+          "turn": 2,
+          "baseline": 642,
+          "compressed": 359,
+          "ratio": 1.79
+        },
+        {
+          "turn": 3,
+          "baseline": 1459,
+          "compressed": 459,
+          "ratio": 3.18
+        },
+        {
+          "turn": 4,
+          "baseline": 2016,
+          "compressed": 335,
+          "ratio": 6.02
+        },
+        {
+          "turn": 5,
+          "baseline": 2637,
+          "compressed": 388,
+          "ratio": 6.8
+        },
+        {
+          "turn": 6,
+          "baseline": 3273,
+          "compressed": 402,
+          "ratio": 8.14
+        },
+        {
+          "turn": 7,
+          "baseline": 3779,
+          "compressed": 320,
+          "ratio": 11.81
+        },
+        {
+          "turn": 8,
+          "baseline": 4314,
+          "compressed": 322,
+          "ratio": 13.4
+        },
+        {
+          "turn": 9,
+          "baseline": 5307,
+          "compressed": 572,
+          "ratio": 9.28
+        },
+        {
+          "turn": 10,
+          "baseline": 5842,
+          "compressed": 348,
+          "ratio": 16.79
+        },
+        {
+          "turn": 11,
+          "baseline": 6693,
+          "compressed": 565,
+          "ratio": 11.85
+        },
+        {
+          "turn": 12,
+          "baseline": 7217,
+          "compressed": 346,
+          "ratio": 20.86
+        },
+        {
+          "turn": 13,
+          "baseline": 7855,
+          "compressed": 553,
+          "ratio": 14.2
+        },
+        {
+          "turn": 14,
+          "baseline": 8481,
+          "compressed": 552,
+          "ratio": 15.36
+        },
+        {
+          "turn": 15,
+          "baseline": 8885,
+          "compressed": 340,
+          "ratio": 26.13
+        },
+        {
+          "turn": 16,
+          "baseline": 9543,
+          "compressed": 556,
+          "ratio": 17.16
+        },
+        {
+          "turn": 17,
+          "baseline": 10214,
+          "compressed": 558,
+          "ratio": 18.3
+        }
+      ],
+      "mean_ratio": 9.73,
+      "peak_ratio": 27.86,
+      "overflow_turns_baseline": 7,
+      "overflow_turns_compressed": 0
+    },
+    "task_success": {
+      "total": 5,
+      "passed": 1,
+      "failed": 4,
+      "rate": 0.2,
+      "by_test": {
+        "A": false,
+        "B": false,
+        "C": false,
+        "D": false,
+        "E": true
+      }
+    },
+    "factual_retention": {
+      "allergy_retention_rate": 0.195,
+      "budget_retention_rate": 0.402,
+      "constraint_loss_turns": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ]
+    },
+    "coherence": {
+      "mean_coherence": 0.995,
+      "incoherent_turns": [],
+      "per_turn_scores": [
+        {
+          "turn": 1,
+          "score": 1.0
+        },
+        {
+          "turn": 2,
+          "score": 1.0
+        },
+        {
+          "turn": 3,
+          "score": 1.0
+        },
+        {
+          "turn": 4,
+          "score": 1.0
+        },
+        {
+          "turn": 5,
+          "score": 1.0
+        },
+        {
+          "turn": 6,
+          "score": 1.0
+        },
+        {
+          "turn": 7,
+          "score": 1.0
+        },
+        {
+          "turn": 8,
+          "score": 1.0
+        },
+        {
+          "turn": 9,
+          "score": 1.0
+        },
+        {
+          "turn": 10,
+          "score": 1.0
+        },
+        {
+          "turn": 11,
+          "score": 1.0
+        },
+        {
+          "turn": 12,
+          "score": 1.0
+        },
+        {
+          "turn": 13,
+          "score": 1.0
+        },
+        {
+          "turn": 14,
+          "score": 1.0
+        },
+        {
+          "turn": 15,
+          "score": 1.0
+        },
+        {
+          "turn": 16,
+          "score": 1.0
+        },
+        {
+          "turn": 1,
+          "score": 1.0
+        },
+        {
+          "turn": 2,
+          "score": 1.0
+        },
+        {
+          "turn": 3,
+          "score": 1.0
+        },
+        {
+          "turn": 4,
+          "score": 1.0
+        },
+        {
+          "turn": 5,
+          "score": 1.0
+        },
+        {
+          "turn": 6,
+          "score": 1.0
+        },
+        {
+          "turn": 7,
+          "score": 1.0
+        },
+        {
+          "turn": 8,
+          "score": 1.0
+        },
+        {
+          "turn": 9,
+          "score": 1.0
+        },
+        {
+          "turn": 10,
+          "score": 1.0
+        },
+        {
+          "turn": 11,
+          "score": 1.0
+        },
+        {
+          "turn": 12,
+          "score": 1.0
+        },
+        {
+          "turn": 13,
+          "score": 1.0
+        },
+        {
+          "turn": 14,
+          "score": 1.0
+        },
+        {
+          "turn": 15,
+          "score": 0.6
+        },
+        {
+          "turn": 16,
+          "score": 1.0
+        },
+        {
+          "turn": 17,
+          "score": 1.0
+        },
+        {
+          "turn": 1,
+          "score": 1.0
+        },
+        {
+          "turn": 2,
+          "score": 1.0
+        },
+        {
+          "turn": 3,
+          "score": 1.0
+        },
+        {
+          "turn": 4,
+          "score": 1.0
+        },
+        {
+          "turn": 5,
+          "score": 1.0
+        },
+        {
+          "turn": 6,
+          "score": 1.0
+        },
+        {
+          "turn": 7,
+          "score": 1.0
+        },
+        {
+          "turn": 8,
+          "score": 1.0
+        },
+        {
+          "turn": 9,
+          "score": 1.0
+        },
+        {
+          "turn": 10,
+          "score": 1.0
+        },
+        {
+          "turn": 11,
+          "score": 1.0
+        },
+        {
+          "turn": 12,
+          "score": 1.0
+        },
+        {
+          "turn": 13,
+          "score": 1.0
+        },
+        {
+          "turn": 14,
+          "score": 1.0
+        },
+        {
+          "turn": 15,
+          "score": 1.0
+        },
+        {
+          "turn": 16,
+          "score": 1.0
+        },
+        {
+          "turn": 17,
+          "score": 1.0
+        },
+        {
+          "turn": 1,
+          "score": 1.0
+        },
+        {
+          "turn": 2,
+          "score": 1.0
+        },
+        {
+          "turn": 3,
+          "score": 1.0
+        },
+        {
+          "turn": 4,
+          "score": 1.0
+        },
+        {
+          "turn": 5,
+          "score": 1.0
+        },
+        {
+          "turn": 6,
+          "score": 1.0
+        },
+        {
+          "turn": 7,
+          "score": 1.0
+        },
+        {
+          "turn": 8,
+          "score": 1.0
+        },
+        {
+          "turn": 9,
+          "score": 1.0
+        },
+        {
+          "turn": 10,
+          "score": 1.0
+        },
+        {
+          "turn": 11,
+          "score": 1.0
+        },
+        {
+          "turn": 12,
+          "score": 1.0
+        },
+        {
+          "turn": 13,
+          "score": 1.0
+        },
+        {
+          "turn": 14,
+          "score": 1.0
+        },
+        {
+          "turn": 15,
+          "score": 1.0
+        },
+        {
+          "turn": 1,
+          "score": 1.0
+        },
+        {
+          "turn": 2,
+          "score": 1.0
+        },
+        {
+          "turn": 3,
+          "score": 1.0
+        },
+        {
+          "turn": 4,
+          "score": 1.0
+        },
+        {
+          "turn": 5,
+          "score": 1.0
+        },
+        {
+          "turn": 6,
+          "score": 1.0
+        },
+        {
+          "turn": 7,
+          "score": 1.0
+        },
+        {
+          "turn": 8,
+          "score": 1.0
+        },
+        {
+          "turn": 9,
+          "score": 1.0
+        },
+        {
+          "turn": 10,
+          "score": 1.0
+        },
+        {
+          "turn": 11,
+          "score": 1.0
+        },
+        {
+          "turn": 12,
+          "score": 1.0
+        },
+        {
+          "turn": 13,
+          "score": 1.0
+        },
+        {
+          "turn": 14,
+          "score": 1.0
+        },
+        {
+          "turn": 15,
+          "score": 1.0
+        },
+        {
+          "turn": 16,
+          "score": 1.0
+        },
+        {
+          "turn": 17,
+          "score": 1.0
+        }
+      ]
+    },
+    "tool_call_quality": {
+      "total_tool_calls": 41,
+      "mean_compression": 1.0,
+      "by_tool": {
+        "web_search": {
+          "calls": 14,
+          "mean_ratio": 1.0,
+          "tokens_saved": 0
+        },
+        "places_search": {
+          "calls": 19,
+          "mean_ratio": 1.0,
+          "tokens_saved": 0
+        },
+        "weather_fetch": {
+          "calls": 1,
+          "mean_ratio": 1.0,
+          "tokens_saved": 0
+        },
+        "budget_tracker": {
+          "calls": 7,
+          "mean_ratio": 1.0,
+          "tokens_saved": 0
+        }
+      },
+      "total_tokens_saved": 0
+    },
+    "long_horizon_robustness": {
+      "turns_evaluated": 12,
+      "constraints_present": 5,
+      "robustness_rate": 0.417,
+      "first_loss_turn": 15,
+      "context_overflow_turns": [
+        15,
+        16,
+        17,
+        15,
+        16,
+        17
+      ]
+    }
+  }
+}

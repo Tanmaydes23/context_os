@@ -1,0 +1,80 @@
+model:
+  name: "Qwen/Qwen2.5-3B-Instruct"
+  max_context_length: 8192
+  generation_max_tokens: 1024
+  torch_dtype: "float16"
+  device: "cuda"
+
+token_budgets:
+  assembled_context_max: 1500
+  retrieved_block_max: 300
+  recent_block_max: 400
+  immediate_block_max: 600
+  current_message_max: 200
+  system_prompt_max: 300
+
+llmlingua:
+  model_name: "openai-community/gpt2"
+  use_llmlingua2: false
+  ratios:
+    web_search: 0.25
+    places_search: 0.25
+    weather_fetch: 0.80
+    budget_tracker: 1.0
+
+scorer_thresholds:
+  verbatim_min: 0.75
+  summarize_min: 0.40
+
+faiss:
+  embedding_model: "all-MiniLM-L6-v2"
+  embedding_dim: 384
+  retrieval_top_k: 20
+  retrieval_return_n: 3
+  db_path: "logs/faiss_metadata.db"
+
+pivot_detection:
+  cosine_similarity_threshold: 0.25
+  phrases:
+    # Universal pivots
+    - "scratch that"
+    - "forget that"
+    - "actually no"
+    - "change of plans"
+    - "never mind"
+    - "start over"
+    - "cancel that"
+    - "let's pivot"
+    - "completely different"
+    - "ignore everything"
+    - "disregard that"
+    - "instead of"
+    # Travel domain pivots
+    - "different destination"
+    - "change destination"
+    - "forget the trip"
+    # Coding domain pivots
+    - "switch to"
+    - "migrate to"
+    - "rewrite in"
+    - "use a different language"
+    - "different framework"
+    - "different stack"
+    # Medical domain pivots
+    - "different treatment"
+    - "try a different medication"
+    - "second opinion"
+    # Support domain pivots
+    - "different product"
+    - "different model"
+
+layer6:
+  enabled: true
+  max_hops: 3
+  min_confidence: 0.30
+  web_search_cache_size: 50
+  fallback_on_network_error: true
+
+logging:
+  session_log_dir: "logs/"
+  log_level: "INFO"

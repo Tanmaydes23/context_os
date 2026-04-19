@@ -1,0 +1,27 @@
+Metric,Baseline,SmolLM2-1.7B+ContextOS,Qwen2.5-3B+ContextOS
+Model size,—,1.7B params,3B params
+VRAM usage,—,~3.4 GB,~6.9 GB
+Task success travel A-E,Crashes at turn 12+,5/5,5/5
+Task success cross-domain F-H,N/A,2/3,2/3
+Task success total,0/8,7/8,7/8
+Mean compression ratio,1.0x,11.55x,8.66x
+Peak compression ratio,1.0x,44.24x,25.99x
+Total tokens per session,~330K,~32K,~36K
+Tokens saved,0,~297K,~262K
+Token savings %,0%,90.3%,87.9%
+Context overflow turns,19-22,0,0
+Constraint retention,Degrades after turn 12,100%,100%
+Constraint violations,N/A,0,0
+Coherence score,N/A,99.2%,100.0%
+Mean turn latency,N/A,~8.3s,~8.1s
+Est. API cost/session (GPT-4o),$4.95,$1.06,$1.08
+
+Test,Domain,SmolLM2 Result,Qwen Result,SmolLM2 Compression,Qwen Compression
+A,Travel — Allergy,PASS,PASS,9.3x,9.2x
+B,Travel — Budget,PASS,PASS,8.3x,6.5x
+C,Travel — Pivot,PASS,PASS,14.2x,9.7x
+D,Travel — Logistics,PASS,PASS,9.7x,6.1x
+E,Travel — Contradiction,PASS,PASS,13.1x,12.4x
+F,Support — Warranty,PASS,PASS,8.7x,10.2x
+G,Medical — Drug Allergy,PASS,PASS,7.4x,8.5x
+H,Coding — Version Constraint,FAIL,FAIL,9.0x,6.3x

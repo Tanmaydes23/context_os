@@ -1,0 +1,370 @@
+WARNING:pipeline.layer0_ner:Falling back to en_core_web_sm
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 1572.40it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 7128.34it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING:agent.travel_agent:Model load with rope_scaling failed (unsupported operand type(s) for ** or pow(): 'NoneType' and 'Tensor'), loading without...
+Loading weights:   0%|          | 0/218 [00:00<?, ?it/s]Loading weights:  18%|█▊        | 40/218 [00:00<00:00, 396.11it/s]Loading weights:  43%|████▎     | 93/218 [00:00<00:00, 472.71it/s]Loading weights:  67%|██████▋   | 147/218 [00:00<00:00, 492.25it/s]Loading weights:  92%|█████████▏| 201/218 [00:00<00:00, 505.09it/s]Loading weights: 100%|██████████| 218/218 [00:00<00:00, 506.29it/s]
+
+Full pipeline evaluation — Layers 1-6
+Output JSON : evaluation/results/eval_full_L1toL6_20260418_130549.json
+Output CSV  : evaluation/results/metrics_L1toL6_20260418_130549.csv
+Started at  : 2026-04-18T13:05:49.854963
+
+============================================================
+CONTEXTOS OFFICIAL EVALUATION — Tests A–E
+============================================================
+
+────────────────────────────────────────────────────────────
+Test A: The Forgotten Allergy
+  Allergy stated turn 1 must survive 14 turns of tool noise
+  Turns: 16
+  Turn  1: I want to plan a 5-day trip to Tokyo and Kyoto. Budget is $3...
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+         → 10636ms
+  Turn  2: Search for direct flights to Tokyo...
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 13841ms
+  Turn  3: Book the JAL flight...
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 14898ms
+  Turn  4: Find hotels in Tokyo...
+         → 14939ms
+  Turn  5: Book the Park Hyatt for 3 nights...
+         → 9394ms
+  Turn  6: What are the best areas to stay in Kyoto?...
+         → 14268ms
+  Turn  7: Find hotels in Kyoto...
+         → 7099ms
+  Turn  8: Book a ryokan for 2 nights...
+         → 8952ms
+  Turn  9: What is the transit like between Tokyo and Kyoto?...
+         → 6194ms
+  Turn 10: Book a shinkansen ticket...
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 10117ms
+  Turn 11: What are popular activities in Tokyo?...
+         → 8340ms
+  Turn 12: What temples should I visit in Kyoto?...
+         → 9203ms
+  Turn 13: Find restaurants near Fushimi Inari...
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+         → 11113ms
+  Turn 14: What is the best time to visit Arashiyama?...
+         → 9278ms
+  Turn 15: What currency should I use in Japan?...
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+         → 10137ms
+  Turn 16: Find me the best dinner spots in Tsukiji area...
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+         → 9925ms
+
+  Result: ✗ FAIL
+  Failure: Agent recommended shellfish/Tsukiji without allergy warning
+  Output: Title: 10 Best Dinner Spots in Tsukiji Area, Tokyo - Yelp
+Summary: Explore the best dining options in Tsukiji, Tokyo, with Yelp's curated list.
+
+You can book a shinkansen ticket at the following link:...
+  [checkpoint saved → evaluation/results/checkpoint.json]
+
+────────────────────────────────────────────────────────────
+Test B: The Budget Anchor
+  Running budget must be tracked correctly across 20 turns
+  Turns: 17
+  Turn  1: Planning Italy — Rome, Florence, Amalfi Coast. 7 days, max b...
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+         → 11100ms
+  Turn  2: Find flights to Rome...
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 11141ms
+  Turn  3: Book the cheapest flight — $800...
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 12780ms
+  Turn  4: Find hotels in Rome...
+         → 14043ms
+  Turn  5: Book a 3-night hotel in Rome for $400 total...
+         → 14224ms
+  Turn  6: What are the must-see sights in Rome?...
+         → 2158ms
+  Turn  7: Book the Colosseum tour...
+         → 2791ms
+  Turn  8: Find restaurants in Trastevere...
+         → 8291ms
+  Turn  9: How do I get from Rome to Florence?...
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+         → 4503ms
+  Turn 10: Book a train from Rome to Florence...
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 9306ms
+  Turn 11: Find hotels in Florence...
+         → 19168ms
+  Turn 12: Book 2 nights in Florence for $350 total...
+         → 9557ms
+  Turn 13: What should I see in Florence?...
+         → 8271ms
+  Turn 14: Find the Uffizi Gallery tickets...
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 13235ms
+  Turn 15: How do I get to the Amalfi Coast from Florence?...
+         → 7750ms
+  Turn 16: What is the best base for the Amalfi Coast?...
+         → 7935ms
+  Turn 17: Find me a hotel on the Amalfi Coast...
+         → 13770ms
+
+  Result: ✗ FAIL
+  Failure: Agent suggested expensive hotel without flagging $950 remaining
+  Output: Title: Affordable Flights, Airline Tickets & Airfare Deals
+Description: Find cheap flights to Italy on KAYAK and compare prices across multiple airlines.
+URL: https://www.kayak.com/flights
+
+Result: to...
+  [checkpoint saved → evaluation/results/checkpoint.json]
+
+────────────────────────────────────────────────────────────
+Test C: The Pivot
+  After pivot to Switzerland, zero Bali content should appear
+  Turns: 17
+  Turn  1: Plan me a beach vacation in Bali for next month....
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+         → 6230ms
+  Turn  2: Find flights to Bali...
+Token indices sequence length is longer than the specified maximum sequence length for this model (3335 > 1024). Running this sequence through the model will result in indexing errors
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 10552ms
+  Turn  3: Find beach resorts in Seminyak...
+         → 10869ms
+  Turn  4: What surf lessons are available in Bali?...
+         → 5260ms
+  Turn  5: Find temple tours in Ubud...
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+         → 8327ms
+  Turn  6: What is the best beach in Bali?...
+         → 7812ms
+  Turn  7: Actually, scratch Bali entirely. Let's do Switzerland instea...
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+         → 6295ms
+  Turn  8: Find flights to Zurich...
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 11755ms
+  Turn  9: What are the best mountain destinations in Switzerland?...
+         → 9222ms
+  Turn 10: Find hotels in Interlaken...
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+         → 9644ms
+  Turn 11: What hiking trails are near Grindelwald?...
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+         → 9180ms
+  Turn 12: Find restaurants in Zurich...
+         → 14252ms
+  Turn 13: What is the weather like in the Swiss Alps?...
+         → 14674ms
+  Turn 14: Book a hotel in Interlaken...
+         → 10718ms
+  Turn 15: What activities are available in Lucerne?...
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+         → 7690ms
+  Turn 16: Find day trips from Zurich...
+         → 8941ms
+  Turn 17: Summarize my trip plan so far....
+         → 8987ms
+
+  Result: ✓ PASS
+  Output: Title: Day Trips from Zurich to Lucerne and Surrounding Areas
+
+Summary: Zurich, the capital of Switz...
+  [checkpoint saved → evaluation/results/checkpoint.json]
+
+────────────────────────────────────────────────────────────
+Test D: The Logistics Puzzle
+  Wednesday 2pm meeting means train must be Thursday morning
+  Turns: 15
+  Turn  1: I'm planning 6 days: 3 in Paris, 3 in Amsterdam. I have a me...
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+         → 8209ms
+  Turn  2: Find flights to Paris...
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 15144ms
+  Turn  3: Find hotels near the Eiffel Tower in Paris...
+         → 9580ms
+  Turn  4: Book a hotel for 3 nights...
+         → 9142ms
+  Turn  5: What should I see in Paris?...
+         → 8897ms
+  Turn  6: Find restaurants near the Louvre...
+         → 10345ms
+  Turn  7: What is the best way to get around Paris?...
+         → 9026ms
+  Turn  8: Book the Louvre tickets...
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 13749ms
+  Turn  9: Find hotels in Amsterdam...
+         → 9355ms
+  Turn 10: Book a canal-side hotel in Amsterdam for 3 nights...
+         → 9999ms
+  Turn 11: What are the must-see sights in Amsterdam?...
+         → 5909ms
+  Turn 12: Find Anne Frank House tickets...
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 8315ms
+  Turn 13: Find canal tour options in Amsterdam...
+         → 8883ms
+  Turn 14: Book the Anne Frank House tickets...
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 4995ms
+  Turn 15: When should I take the train from Paris to Amsterdam?...
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 4985ms
+
+  Result: ✗ FAIL
+  Failure: Agent suggested Wednesday departure despite 2pm Wednesday meeting
+  Output: There are no options available for taking the train from Paris to Amsterdam at the present time. I suggest checking the SNCF website or a travel booking site for the most accurate and up-to-date infor...
+  [checkpoint saved → evaluation/results/checkpoint.json]
+
+────────────────────────────────────────────────────────────
+Test E: The Contradiction Detector
+  15 activities for 3-day trip violates max-2-per-day preference
+  Turns: 17
+  Turn  1: I want a relaxing trip. No packed schedules. Max 2 activitie...
+ERROR:agent.tools:weather_fetch failed for 'I want a relaxing trip. No packed schedules. Max 2 activities per day.': HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Max retries exceeded with url: /search?q=I+want+a+relaxing+trip.+No+packed+schedules.+Max+2+activities+per+day.&format=json&limit=1 (Caused by ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=5)"))
+         → 7647ms
+  Turn  2: I'm planning 3 days in Barcelona....
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+         → 5858ms
+  Turn  3: What are the best things to do in Barcelona?...
+         → 5127ms
+  Turn  4: Tell me about Sagrada Familia...
+         → 4324ms
+  Turn  5: Tell me about Park Güell...
+         → 4259ms
+  Turn  6: Tell me about the Gothic Quarter...
+         → 4186ms
+  Turn  7: Tell me about Camp Nou...
+         → 4822ms
+  Turn  8: Tell me about Barceloneta Beach...
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+         → 5245ms
+  Turn  9: Tell me about Picasso Museum...
+         → 3937ms
+  Turn 10: Tell me about La Boqueria market...
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+         → 5425ms
+  Turn 11: Tell me about Montjuïc castle...
+         → 4718ms
+  Turn 12: Tell me about Tibidabo amusement park...
+         → 4875ms
+  Turn 13: Tell me about Casa Batlló...
+         → 3482ms
+  Turn 14: Tell me about El Born neighborhood...
+         → 4853ms
+  Turn 15: Tell me about Palau de la Música...
+/home/teaching/Documents/hack60_ps_3/pipeline/layer6_graph.py:79: RuntimeWarning: This package (`duckduckgo_search`) has been renamed to `ddgs`! Use `pip install ddgs` instead.
+  with DDGS() as ddgs:
+         → 9403ms
+  Turn 16: Tell me about MACBA museum...
+         → 2970ms
+  Turn 17: OK book all of these for my 3-day trip...
+         → 3714ms
+
+  Result: ✓ PASS
+  Output: Based on the current request, I would recommend the following adjustments to your trip:
+
+Day 1:
+- Mo...
+  [checkpoint saved → evaluation/results/checkpoint.json]
+
+────────────────────────────────────────────────────────────
+Computing metrics...
+
+============================================================
+RESULTS SUMMARY
+============================================================
+
+Task Success:          2/5 tests passed (40%)
+  Test A: ✗ The Forgotten Allergy
+  Test B: ✗ The Budget Anchor
+  Test C: ✓ The Pivot
+  Test D: ✗ The Logistics Puzzle
+  Test E: ✓ The Contradiction Detector
+
+Token Efficiency:
+  Mean compression ratio:    8.42x
+  Peak compression ratio:    33.07x
+  Baseline overflow turns:   13
+  Compressed overflow turns: 0
+
+Factual Retention:
+  Allergy retention rate:    19.5%
+  Budget retention rate:     40.2%
+  Constraint lost at turns:  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+
+Coherence:
+  Mean coherence score:      100.0%
+  Incoherent turns:          []
+
+Tool Call Quality:
+  Mean tool compression:     1.89x
+  Total tokens saved:        6,149
+  web_search            3.6x  (14 calls)
+  places_search         1.0x  (19 calls)
+  weather_fetch         1.0x  (1 calls)
+  budget_tracker        1.0x  (7 calls)
+
+Long Horizon Robustness (turn 15+):
+  Robustness rate:           41.7%
+  First constraint loss:     15
+
+Metrics exported: evaluation/results/metrics_report.csv
+Full results:    evaluation/results/eval_20260418_131750.json
+Checkpoint removed (run complete).
+============================================================
+
+
+Full-pipeline results saved:
+  JSON : evaluation/results/eval_full_L1toL6_20260418_130549.json
+  CSV  : evaluation/results/metrics_L1toL6_20260418_130549.csv
+  Total runtime: 1746890174.3 min
+/home/teaching/miniconda3/envs/context_os/lib/python3.11/tempfile.py:934: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/tmpaylgqxpi'>
+  _warnings.warn(warn_message, ResourceWarning)

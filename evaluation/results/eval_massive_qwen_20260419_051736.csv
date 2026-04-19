@@ -1,0 +1,5 @@
+tc_id,category,priority,recall_type,model,passed,compression_ratio,total_tokens,baseline_tokens,tokens_saved,turn_latency_ms,total_latency_ms,csnr,cdr,sclr,mhsrl_ms,n_turns,coherence_score,constraint_violation,is_long_horizon,skip_reason
+TC-A-MED-001,A,P0,explicit,qwen,1,14.02,240,3365,3125,4789.2,46726.1,0.125,1.0,,8.0,8,1.0,0,1,
+TC-A-MED-002,A,P0,explicit,qwen,1,7.61,310,2358,2048,4104.7,33572.9,0.0484,0.8,,8.0,6,1.0,0,0,
+TC-A-MED-003,A,P0,explicit,qwen,1,7.97,307,2448,2141,6374.9,35604.5,0.0,0.0,,8.0,5,1.0,0,0,
+TC-A-MED-004,A,P1,implicit,qwen,0,6.63,153,1015,862,4834.9,17000.3,0.0,0.8,,8.0,6,1.0,0,0,

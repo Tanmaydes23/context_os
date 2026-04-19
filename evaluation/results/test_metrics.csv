@@ -1,0 +1,20 @@
+category,metric,value,unit,notes
+token_efficiency,mean_compression_ratio,8.26,x,Higher is better
+token_efficiency,peak_compression_ratio,11.43,x,
+token_efficiency,baseline_overflow_turns,10,turns,Baseline failures
+token_efficiency,compressed_overflow_turns,0,turns,Should be 0
+task_success,pass_rate,0.8,fraction,Target: ≥0.80
+task_success,tests_passed,4,/5,
+task_success,test_A,1,pass/fail,
+task_success,test_B,1,pass/fail,
+task_success,test_C,0,pass/fail,
+task_success,test_D,1,pass/fail,
+task_success,test_E,1,pass/fail,
+factual_retention,allergy_retention_rate,1.0,fraction,Target: 1.0
+factual_retention,budget_retention_rate,1.0,fraction,Target: 1.0
+coherence,mean_coherence_score,0.85,0-1,Target: ≥0.80
+coherence,incoherent_turns_count,0,turns,Lower is better
+tool_call_quality,mean_tool_compression,4.0,x,
+tool_call_quality,total_tokens_saved,5000,tokens,
+long_horizon_robustness,robustness_rate,0.95,fraction,Turn 15+ constraint retention
+long_horizon_robustness,first_constraint_loss_turn,,turn,Never = perfect

@@ -1,0 +1,44 @@
+category,metric,value,unit,notes
+token_efficiency,mean_compression_ratio,7.458,x,Higher is better
+token_efficiency,peak_compression_ratio,24.81,x,
+token_efficiency,mean_token_savings_pct,75.4,%,vs uncompressed baseline
+token_efficiency,mean_total_tokens,460.18,tokens,
+token_efficiency,mean_baseline_tokens,3337.2,tokens,
+token_efficiency,total_tokens_saved,143851,tokens,across all test cases
+token_efficiency,baseline_overflow_turns,2,turns,Baseline would exceed 15K ctx
+token_efficiency,compressed_overflow_turns,0,turns,Should be 0
+task_success,pass_rate,0.58,fraction,Target: ≥0.80
+task_success,tests_passed,29/50,/total,
+task_success,scenario_A_medical_symptom,0.833,fraction,5/6 pass
+task_success,scenario_B_software_debug_,0.833,fraction,5/6 pass
+task_success,scenario_C_legal_document_,0.333,fraction,2/6 pass
+task_success,scenario_D_home_renovation,0.5,fraction,3/6 pass
+task_success,scenario_E_job_application,0.167,fraction,1/6 pass
+task_success,scenario_F_warranty_/_tech,0.167,fraction,1/6 pass
+task_success,scenario_G_drug_allergy_ad,0.714,fraction,5/7 pass
+task_success,scenario_H_python_version_,1.0,fraction,7/7 pass
+task_success,priority_p0,0.519,fraction,14/27 pass
+task_success,priority_p1,0.652,fraction,15/23 pass
+factual_retention,allergy_retention_rate,0.833,fraction,Target: 1.0
+factual_retention,budget_retention_rate,0.6,fraction,Target: 1.0
+factual_retention,temporal_retention_rate,0.33299999999999996,fraction,Target: 1.0
+coherence,mean_coherence_score,1.0,0-1,Target: ≥0.80
+coherence,incoherent_turns_count,0,turns,Lower is better
+tool_call_quality,mean_tool_compression,1.0,x,
+tool_call_quality,total_tokens_saved,143851,tokens,
+long_horizon_robustness,robustness_rate,0.5,fraction,Turn 12+ constraint retention
+long_horizon_robustness,first_constraint_loss_turn,2,turn,Never = perfect
+constraint_accuracy,violation_rate,0.22,fraction,Target: 0.0
+constraint_accuracy,total_violations,11,count,Lower is better
+constraint_accuracy,allergy_violations,1,count,
+constraint_accuracy,budget_violations,2,count,
+constraint_accuracy,temporal_violations,8,count,
+recall_accuracy,explicit_constraint_recall,0.481,fraction,Clearly-stated constraints
+recall_accuracy,implicit_constraint_recall,0.696,fraction,Inferred/hinted constraints
+recall_accuracy,recall_gap,-0.215,fraction,explicit - implicit
+context_quality,mean_csnr,0.048,ratio,Constraint signal-to-noise ratio (higher=denser)
+context_quality,mean_cdr,0.422,fraction,Compression distortion rate (lower=less distortion)
+context_quality,mean_sclr_pivot_tests,0.0,fraction,Stale context leakage after pivot (0=perfect)
+latency,mean_trigger_turn_ms,10527.2,ms,Trigger-turn end-to-end
+latency,p95_trigger_turn_ms,25397.0,ms,
+latency,mean_mhsrl_ms,8.0,ms,Multi-hop state resolution (layer3)

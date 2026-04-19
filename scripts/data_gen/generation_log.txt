@@ -1,0 +1,17 @@
+[17:23:26] Phase 1: Generating synthetic travel conversations...
+[17:23:26] Resumed: 134 conversations already on disk
+[17:32:03] Conversations: 143/134 done, 5 failed
+[17:32:03] Phase 1 complete: 143 conversations generated
+[17:32:03] Phase 2: Extracting sentences...
+[17:32:03] Phase 2 complete: 8291 sentences extracted from 143 conversations
+[17:32:03] Phase 3: Labeling with 3-tier causal pipeline...
+[17:32:03] Phase 3 starting: 8291 sentences remaining to label
+[17:34:13] [100/8291] T1:45(45%) T2:55 T3:6 Verified:0 Rejected:6 Label=1:0.39
+[17:36:56] [200/8291] T1:82(41%) T2:118 T3:16 Verified:0 Rejected:16 Label=1:0.34
+[17:39:31] [300/8291] T1:121(40%) T2:179 T3:25 Verified:0 Rejected:25 Label=1:0.32
+[17:41:43] [400/8291] T1:173(43%) T2:227 T3:36 Verified:0 Rejected:36 Label=1:0.33
+[17:44:15] [500/8291] T1:215(43%) T2:285 T3:44 Verified:0 Rejected:44 Label=1:0.33
+[17:46:52] [600/8291] T1:259(43%) T2:341 T3:57 Verified:0 Rejected:57 Label=1:0.33
+[17:49:24] [700/8291] T1:306(43%) T2:394 T3:72 Verified:0 Rejected:72 Label=1:0.34
+[17:51:52] [800/8291] T1:349(43%) T2:451 T3:81 Verified:0 Rejected:81 Label=1:0.34
+[17:54:19] [900/8291] T1:390(43%) T2:510 T3:91 Verified:0 Rejected:91 Label=1:0.33

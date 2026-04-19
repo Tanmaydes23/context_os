@@ -1,0 +1,25 @@
+{
+  "turn_id": 3,
+  "label": "implicit_allergy_soft_prefs",
+  "input_turn": "I react badly to anything from the sea. I want a relaxing trip \u2014 max 2 activities per day, solo traveler.",
+  "prompt_sent": "Extract entities and relations as JSON: I react badly to anything from the sea. I want a relaxing trip \u2014 max 2 activities per day, solo traveler.",
+  "raw_output": "{\n  \"reactions\": [\n    \"sea\"\n  ],\n  \"activities\": [\n    \"relaxing\",\n    \"solo\"\n  ],\n  \"max_activities_per_day\": 2,\n  \"solo_traveler\": true\n}",
+  "parseable": true,
+  "parse_strategy": "direct",
+  "parsed_object": {
+    "reactions": [
+      "sea"
+    ],
+    "activities": [
+      "relaxing",
+      "solo"
+    ],
+    "max_activities_per_day": 2,
+    "solo_traveler": true
+  },
+  "token_counts": {
+    "input": 70,
+    "output": 56
+  },
+  "inference_ms": 6230
+}

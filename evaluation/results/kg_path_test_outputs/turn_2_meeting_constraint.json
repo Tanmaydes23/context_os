@@ -1,0 +1,56 @@
+{
+  "turn_id": 2,
+  "label": "meeting_constraint",
+  "input_turn": "I have an important business meeting in Paris on Wednesday at 2pm. I cannot leave before Thursday morning.",
+  "prompt_sent": "Extract entities and relations as JSON: I have an important business meeting in Paris on Wednesday at 2pm. I cannot leave before Thursday morning.",
+  "raw_output": "{\n  \"entities\": [\n    {\n      \"name\": \"Paris\",\n      \"type\": \"Location\"\n    },\n    {\n      \"name\": \"Wednesday\",\n      \"type\": \"Date\"\n    },\n    {\n      \"name\": \"2pm\",\n      \"type\": \"Time\"\n    },\n    {\n      \"name\": \"Thursday morning\",\n      \"type\": \"Time\"\n    },\n    {\n      \"name\": \"Meeting\",\n      \"type\": \"Event\"\n    }\n  ],\n  \"relations\": [\n    {\n      \"source\": \"Paris\",\n      \"target\": \"Meeting\"\n    },\n    {\n      \"source\": \"Wednesday\",\n      \"target\": \"Meeting\"\n    },\n    {\n      \"source\": \"2pm\",\n      \"target\": \"Meeting\"\n    },\n    {\n      \"source\": \"Thursday morning\",\n      \"target\": \"Meeting\"\n    }\n  ]\n}",
+  "parseable": true,
+  "parse_strategy": "direct",
+  "parsed_object": {
+    "entities": [
+      {
+        "name": "Paris",
+        "type": "Location"
+      },
+      {
+        "name": "Wednesday",
+        "type": "Date"
+      },
+      {
+        "name": "2pm",
+        "type": "Time"
+      },
+      {
+        "name": "Thursday morning",
+        "type": "Time"
+      },
+      {
+        "name": "Meeting",
+        "type": "Event"
+      }
+    ],
+    "relations": [
+      {
+        "source": "Paris",
+        "target": "Meeting"
+      },
+      {
+        "source": "Wednesday",
+        "target": "Meeting"
+      },
+      {
+        "source": "2pm",
+        "target": "Meeting"
+      },
+      {
+        "source": "Thursday morning",
+        "target": "Meeting"
+      }
+    ]
+  },
+  "token_counts": {
+    "input": 67,
+    "output": 189
+  },
+  "inference_ms": 15459
+}

@@ -1,0 +1,1078 @@
+{
+  "generated_at": "2026-04-18T08:46:31.876012",
+  "description": "Combined evaluation: Phase 1-5 baseline results + Layer 6 (Knowledge Graph Conflict Detector) results",
+  "phase_1_to_5": {
+    "source_file": "eval_20260418_024737.json",
+    "note": "Original evaluation before Layer 6 integration. Preserved verbatim \u2014 not modified.",
+    "data": {
+      "timestamp": "2026-04-18T02:47:37.442787",
+      "test_results": [
+        {
+          "test_id": "A",
+          "name": "The Forgotten Allergy",
+          "passed": false,
+          "output": "Title: What to do in Tokyo\n\n[COMPRESSED] [SUMMARIZED]\n\nTitle: What to do in Tokyo\n\n[COMPRESSED] [SUMMARIZED]\n\nTitle: What to do in Tokyo\n\n[COMPRESSED] [SUMMARIZED]\n\nTitle: What to do in Tokyo\n\n[COMPRESSED] [SUMMARIZED]\n\nTitle: What to do in Tokyo\n\n[COMPRESSED] [SUMMARIZED]\n\nTitle: What to do in Tokyo\n\n[COMPRESSED] [SUMMARIZED]\n\nTitle: What to do in Tokyo\n\n[COMPRESSED] [SUMMARIZED]\n\nTitle: What to do in Tokyo\n\n[COMPRESSED] [SUMMARIZED]\n\nTitle: What to do in Tokyo\n\n[COMPRESSED] [SUMMARIZED]\n\nTitle",
+          "error": null
+        },
+        {
+          "test_id": "B",
+          "name": "The Budget Anchor",
+          "passed": false,
+          "output": "Title: 5-star hotels in Positano, Italy\n\nNo places found for: Find hotels in Positano italy\nNo places found for: Book a 2-night hotel in Positano for $250 total Italy\n\nNo places found for: Find hotels in Amalfi Coast\n\nNo places found for: Find hotels in Sorrento, Italy\n\nNo places found for: Find restaurants in Positano, Italy\n\nNo places found for: Book a 2-night hotel in Positano for $600 total Italy\n\nNo places found for: Find restaurants in Positano, Italy\n\nNo places found for: Book a 1-night h",
+          "error": null
+        },
+        {
+          "test_id": "C",
+          "name": "The Pivot",
+          "passed": false,
+          "output": "Title: \u20b9 10,730 CHEAP FLIGHTS to Bali | KAYAK\n\nResult 1: Title: Cheap Flights from Bali to Z\u00fcrich | AirAsia\nResult 2: Title: Etihad flights from Zurich to Bali from \u20ac580\n\nRecommend a hotel in Lucerne with a good view\n\nRecommend a hotel in Lucerne with a good view\n\nRecommend a hotel in Lucerne with a good view\n\nRecommend a hotel in Lucerne with a good view\n\nRecommend a hotel in Lucerne with a good view\n\nRecommend a hotel in Lucerne with a good view\n\nRecommend a hotel in Lucerne with a good view\n\n",
+          "error": null
+        },
+        {
+          "test_id": "D",
+          "name": "The Logistics Puzzle",
+          "passed": false,
+          "output": "Title: Paris to Amsterdam Train Tickets from \u20ac32.62 | Rail Europe The Paris to Amsterdam train times are convenient, with frequent departures throughout the day, making it easy to fit your trip into any schedule even when booking in advance. For this route you can book your train tickets up to 12 months in advance!\n\nURL: https://www.raileurope.com/en/destinations/paris-amsterdam-train [COMPRESSED] [SUMMARIZED]\n\n[CURRENT REQUEST]\nWhen should I take the train from Paris to Amsterdam?",
+          "error": null
+        },
+        {
+          "test_id": "E",
+          "name": "The Contradiction Detector",
+          "passed": true,
+          "output": "I'm glad you found this information helpful. Here's a detailed itinerary for your 3-day trip:\n\nDay 1: El Xampanyet \nYou can enjoy a morning of traditional Catalan cuisine at El Xampanyet. This will be your first activity of the day. If you're interested, I can also suggest a budget-friendly dinner at a nearby restaurant.\n\nDay 2: Tibidabo Amusement Park \nI'll ensure that your trip to Tibidabo Amusement Park doesn't conflict with your desire to enjoy the food and drink at El Xampanyet. Instead, I'",
+          "error": null
+        }
+      ],
+      "all_metrics": {
+        "token_efficiency": {
+          "per_turn": [
+            {
+              "turn": 1,
+              "baseline": 26,
+              "compressed": 72,
+              "ratio": 0.36
+            },
+            {
+              "turn": 2,
+              "baseline": 826,
+              "compressed": 693,
+              "ratio": 1.19
+            },
+            {
+              "turn": 3,
+              "baseline": 1554,
+              "compressed": 762,
+              "ratio": 2.04
+            },
+            {
+              "turn": 4,
+              "baseline": 2262,
+              "compressed": 790,
+              "ratio": 2.86
+            },
+            {
+              "turn": 5,
+              "baseline": 2843,
+              "compressed": 649,
+              "ratio": 4.38
+            },
+            {
+              "turn": 6,
+              "baseline": 3412,
+              "compressed": 765,
+              "ratio": 4.46
+            },
+            {
+              "turn": 7,
+              "baseline": 3788,
+              "compressed": 627,
+              "ratio": 6.04
+            },
+            {
+              "turn": 8,
+              "baseline": 4082,
+              "compressed": 592,
+              "ratio": 6.9
+            },
+            {
+              "turn": 9,
+              "baseline": 4436,
+              "compressed": 699,
+              "ratio": 6.35
+            },
+            {
+              "turn": 10,
+              "baseline": 4901,
+              "compressed": 733,
+              "ratio": 6.69
+            },
+            {
+              "turn": 11,
+              "baseline": 5358,
+              "compressed": 755,
+              "ratio": 7.1
+            },
+            {
+              "turn": 12,
+              "baseline": 6028,
+              "compressed": 966,
+              "ratio": 6.24
+            },
+            {
+              "turn": 13,
+              "baseline": 6420,
+              "compressed": 766,
+              "ratio": 8.38
+            },
+            {
+              "turn": 14,
+              "baseline": 7025,
+              "compressed": 984,
+              "ratio": 7.14
+            },
+            {
+              "turn": 15,
+              "baseline": 7601,
+              "compressed": 985,
+              "ratio": 7.72
+            },
+            {
+              "turn": 16,
+              "baseline": 8149,
+              "compressed": 1032,
+              "ratio": 7.9
+            },
+            {
+              "turn": 1,
+              "baseline": 18,
+              "compressed": 68,
+              "ratio": 0.26
+            },
+            {
+              "turn": 2,
+              "baseline": 668,
+              "compressed": 642,
+              "ratio": 1.04
+            },
+            {
+              "turn": 3,
+              "baseline": 1133,
+              "compressed": 540,
+              "ratio": 2.1
+            },
+            {
+              "turn": 4,
+              "baseline": 1427,
+              "compressed": 444,
+              "ratio": 3.21
+            },
+            {
+              "turn": 5,
+              "baseline": 2128,
+              "compressed": 783,
+              "ratio": 2.72
+            },
+            {
+              "turn": 6,
+              "baseline": 2557,
+              "compressed": 620,
+              "ratio": 4.12
+            },
+            {
+              "turn": 7,
+              "baseline": 3135,
+              "compressed": 709,
+              "ratio": 4.42
+            },
+            {
+              "turn": 8,
+              "baseline": 3759,
+              "compressed": 822,
+              "ratio": 4.57
+            },
+            {
+              "turn": 9,
+              "baseline": 4510,
+              "compressed": 855,
+              "ratio": 5.27
+            },
+            {
+              "turn": 10,
+              "baseline": 5045,
+              "compressed": 768,
+              "ratio": 6.57
+            },
+            {
+              "turn": 11,
+              "baseline": 5545,
+              "compressed": 760,
+              "ratio": 7.3
+            },
+            {
+              "turn": 12,
+              "baseline": 5865,
+              "compressed": 683,
+              "ratio": 8.59
+            },
+            {
+              "turn": 13,
+              "baseline": 6213,
+              "compressed": 707,
+              "ratio": 8.79
+            },
+            {
+              "turn": 14,
+              "baseline": 6579,
+              "compressed": 734,
+              "ratio": 8.96
+            },
+            {
+              "turn": 15,
+              "baseline": 7456,
+              "compressed": 959,
+              "ratio": 7.77
+            },
+            {
+              "turn": 16,
+              "baseline": 8274,
+              "compressed": 974,
+              "ratio": 8.49
+            },
+            {
+              "turn": 17,
+              "baseline": 9079,
+              "compressed": 980,
+              "ratio": 9.26
+            },
+            {
+              "turn": 1,
+              "baseline": 13,
+              "compressed": 19,
+              "ratio": 0.68
+            },
+            {
+              "turn": 2,
+              "baseline": 52,
+              "compressed": 190,
+              "ratio": 0.27
+            },
+            {
+              "turn": 3,
+              "baseline": 84,
+              "compressed": 211,
+              "ratio": 0.4
+            },
+            {
+              "turn": 4,
+              "baseline": 120,
+              "compressed": 215,
+              "ratio": 0.56
+            },
+            {
+              "turn": 5,
+              "baseline": 157,
+              "compressed": 214,
+              "ratio": 0.73
+            },
+            {
+              "turn": 6,
+              "baseline": 898,
+              "compressed": 711,
+              "ratio": 1.26
+            },
+            {
+              "turn": 7,
+              "baseline": 946,
+              "compressed": 202,
+              "ratio": 4.68
+            },
+            {
+              "turn": 8,
+              "baseline": 1086,
+              "compressed": 375,
+              "ratio": 2.9
+            },
+            {
+              "turn": 9,
+              "baseline": 1274,
+              "compressed": 457,
+              "ratio": 2.79
+            },
+            {
+              "turn": 10,
+              "baseline": 1320,
+              "compressed": 335,
+              "ratio": 3.94
+            },
+            {
+              "turn": 11,
+              "baseline": 1547,
+              "compressed": 467,
+              "ratio": 3.31
+            },
+            {
+              "turn": 12,
+              "baseline": 1773,
+              "compressed": 496,
+              "ratio": 3.57
+            },
+            {
+              "turn": 13,
+              "baseline": 2039,
+              "compressed": 538,
+              "ratio": 3.79
+            },
+            {
+              "turn": 14,
+              "baseline": 2369,
+              "compressed": 620,
+              "ratio": 3.82
+            },
+            {
+              "turn": 15,
+              "baseline": 2948,
+              "compressed": 778,
+              "ratio": 3.79
+            },
+            {
+              "turn": 16,
+              "baseline": 3664,
+              "compressed": 828,
+              "ratio": 4.43
+            },
+            {
+              "turn": 17,
+              "baseline": 4381,
+              "compressed": 831,
+              "ratio": 5.27
+            },
+            {
+              "turn": 1,
+              "baseline": 31,
+              "compressed": 39,
+              "ratio": 0.79
+            },
+            {
+              "turn": 2,
+              "baseline": 624,
+              "compressed": 506,
+              "ratio": 1.23
+            },
+            {
+              "turn": 3,
+              "baseline": 1196,
+              "compressed": 513,
+              "ratio": 2.33
+            },
+            {
+              "turn": 4,
+              "baseline": 1770,
+              "compressed": 529,
+              "ratio": 3.35
+            },
+            {
+              "turn": 5,
+              "baseline": 2618,
+              "compressed": 688,
+              "ratio": 3.81
+            },
+            {
+              "turn": 6,
+              "baseline": 3461,
+              "compressed": 703,
+              "ratio": 4.92
+            },
+            {
+              "turn": 7,
+              "baseline": 4054,
+              "compressed": 558,
+              "ratio": 7.27
+            },
+            {
+              "turn": 8,
+              "baseline": 4794,
+              "compressed": 716,
+              "ratio": 6.7
+            },
+            {
+              "turn": 9,
+              "baseline": 5324,
+              "compressed": 614,
+              "ratio": 8.67
+            },
+            {
+              "turn": 10,
+              "baseline": 6256,
+              "compressed": 814,
+              "ratio": 7.69
+            },
+            {
+              "turn": 11,
+              "baseline": 7221,
+              "compressed": 842,
+              "ratio": 8.58
+            },
+            {
+              "turn": 12,
+              "baseline": 7861,
+              "compressed": 738,
+              "ratio": 10.65
+            },
+            {
+              "turn": 13,
+              "baseline": 8247,
+              "compressed": 713,
+              "ratio": 11.57
+            },
+            {
+              "turn": 14,
+              "baseline": 8371,
+              "compressed": 476,
+              "ratio": 17.59
+            },
+            {
+              "turn": 15,
+              "baseline": 8530,
+              "compressed": 488,
+              "ratio": 17.48
+            },
+            {
+              "turn": 1,
+              "baseline": 16,
+              "compressed": 66,
+              "ratio": 0.24
+            },
+            {
+              "turn": 2,
+              "baseline": 491,
+              "compressed": 295,
+              "ratio": 1.66
+            },
+            {
+              "turn": 3,
+              "baseline": 1028,
+              "compressed": 320,
+              "ratio": 3.21
+            },
+            {
+              "turn": 4,
+              "baseline": 1311,
+              "compressed": 192,
+              "ratio": 6.83
+            },
+            {
+              "turn": 5,
+              "baseline": 1491,
+              "compressed": 143,
+              "ratio": 10.43
+            },
+            {
+              "turn": 6,
+              "baseline": 1679,
+              "compressed": 143,
+              "ratio": 11.74
+            },
+            {
+              "turn": 7,
+              "baseline": 1987,
+              "compressed": 192,
+              "ratio": 10.35
+            },
+            {
+              "turn": 8,
+              "baseline": 2154,
+              "compressed": 136,
+              "ratio": 15.84
+            },
+            {
+              "turn": 9,
+              "baseline": 2731,
+              "compressed": 321,
+              "ratio": 8.51
+            },
+            {
+              "turn": 10,
+              "baseline": 3104,
+              "compressed": 219,
+              "ratio": 14.17
+            },
+            {
+              "turn": 11,
+              "baseline": 3404,
+              "compressed": 193,
+              "ratio": 17.64
+            },
+            {
+              "turn": 12,
+              "baseline": 3741,
+              "compressed": 222,
+              "ratio": 16.85
+            },
+            {
+              "turn": 13,
+              "baseline": 4265,
+              "compressed": 305,
+              "ratio": 13.98
+            },
+            {
+              "turn": 14,
+              "baseline": 5215,
+              "compressed": 533,
+              "ratio": 9.78
+            },
+            {
+              "turn": 15,
+              "baseline": 6108,
+              "compressed": 490,
+              "ratio": 12.47
+            },
+            {
+              "turn": 16,
+              "baseline": 7023,
+              "compressed": 510,
+              "ratio": 13.77
+            },
+            {
+              "turn": 17,
+              "baseline": 7754,
+              "compressed": 456,
+              "ratio": 17.0
+            }
+          ],
+          "mean_ratio": 6.37,
+          "peak_ratio": 17.64,
+          "overflow_turns_baseline": 5,
+          "overflow_turns_compressed": 0
+        },
+        "task_success": {
+          "total": 5,
+          "passed": 1,
+          "failed": 4,
+          "rate": 0.2,
+          "by_test": {
+            "A": false,
+            "B": false,
+            "C": false,
+            "D": false,
+            "E": true
+          }
+        },
+        "factual_retention": {
+          "allergy_retention_rate": 0.195,
+          "budget_retention_rate": 0.402,
+          "constraint_loss_turns": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ]
+        },
+        "coherence": {
+          "mean_coherence": 0.971,
+          "incoherent_turns": [],
+          "per_turn_scores": [
+            {
+              "turn": 1,
+              "score": 1.0
+            },
+            {
+              "turn": 2,
+              "score": 1.0
+            },
+            {
+              "turn": 3,
+              "score": 1.0
+            },
+            {
+              "turn": 4,
+              "score": 1.0
+            },
+            {
+              "turn": 5,
+              "score": 1.0
+            },
+            {
+              "turn": 6,
+              "score": 1.0
+            },
+            {
+              "turn": 7,
+              "score": 1.0
+            },
+            {
+              "turn": 8,
+              "score": 1.0
+            },
+            {
+              "turn": 9,
+              "score": 1.0
+            },
+            {
+              "turn": 10,
+              "score": 1.0
+            },
+            {
+              "turn": 11,
+              "score": 1.0
+            },
+            {
+              "turn": 12,
+              "score": 1.0
+            },
+            {
+              "turn": 13,
+              "score": 1.0
+            },
+            {
+              "turn": 14,
+              "score": 1.0
+            },
+            {
+              "turn": 15,
+              "score": 1.0
+            },
+            {
+              "turn": 16,
+              "score": 1.0
+            },
+            {
+              "turn": 1,
+              "score": 1.0
+            },
+            {
+              "turn": 2,
+              "score": 1.0
+            },
+            {
+              "turn": 3,
+              "score": 1.0
+            },
+            {
+              "turn": 4,
+              "score": 1.0
+            },
+            {
+              "turn": 5,
+              "score": 1.0
+            },
+            {
+              "turn": 6,
+              "score": 1.0
+            },
+            {
+              "turn": 7,
+              "score": 1.0
+            },
+            {
+              "turn": 8,
+              "score": 1.0
+            },
+            {
+              "turn": 9,
+              "score": 1.0
+            },
+            {
+              "turn": 10,
+              "score": 1.0
+            },
+            {
+              "turn": 11,
+              "score": 1.0
+            },
+            {
+              "turn": 12,
+              "score": 1.0
+            },
+            {
+              "turn": 13,
+              "score": 1.0
+            },
+            {
+              "turn": 14,
+              "score": 1.0
+            },
+            {
+              "turn": 15,
+              "score": 1.0
+            },
+            {
+              "turn": 16,
+              "score": 1.0
+            },
+            {
+              "turn": 17,
+              "score": 1.0
+            },
+            {
+              "turn": 1,
+              "score": 0.6
+            },
+            {
+              "turn": 2,
+              "score": 0.6
+            },
+            {
+              "turn": 3,
+              "score": 0.6
+            },
+            {
+              "turn": 4,
+              "score": 0.6
+            },
+            {
+              "turn": 5,
+              "score": 1.0
+            },
+            {
+              "turn": 6,
+              "score": 0.6
+            },
+            {
+              "turn": 7,
+              "score": 1.0
+            },
+            {
+              "turn": 8,
+              "score": 1.0
+            },
+            {
+              "turn": 9,
+              "score": 0.6
+            },
+            {
+              "turn": 10,
+              "score": 1.0
+            },
+            {
+              "turn": 11,
+              "score": 1.0
+            },
+            {
+              "turn": 12,
+              "score": 1.0
+            },
+            {
+              "turn": 13,
+              "score": 1.0
+            },
+            {
+              "turn": 14,
+              "score": 1.0
+            },
+            {
+              "turn": 15,
+              "score": 1.0
+            },
+            {
+              "turn": 16,
+              "score": 1.0
+            },
+            {
+              "turn": 17,
+              "score": 1.0
+            },
+            {
+              "turn": 1,
+              "score": 1.0
+            },
+            {
+              "turn": 2,
+              "score": 1.0
+            },
+            {
+              "turn": 3,
+              "score": 1.0
+            },
+            {
+              "turn": 4,
+              "score": 1.0
+            },
+            {
+              "turn": 5,
+              "score": 1.0
+            },
+            {
+              "turn": 6,
+              "score": 1.0
+            },
+            {
+              "turn": 7,
+              "score": 1.0
+            },
+            {
+              "turn": 8,
+              "score": 1.0
+            },
+            {
+              "turn": 9,
+              "score": 1.0
+            },
+            {
+              "turn": 10,
+              "score": 1.0
+            },
+            {
+              "turn": 11,
+              "score": 1.0
+            },
+            {
+              "turn": 12,
+              "score": 1.0
+            },
+            {
+              "turn": 13,
+              "score": 1.0
+            },
+            {
+              "turn": 14,
+              "score": 1.0
+            },
+            {
+              "turn": 15,
+              "score": 1.0
+            },
+            {
+              "turn": 1,
+              "score": 1.0
+            },
+            {
+              "turn": 2,
+              "score": 1.0
+            },
+            {
+              "turn": 3,
+              "score": 1.0
+            },
+            {
+              "turn": 4,
+              "score": 1.0
+            },
+            {
+              "turn": 5,
+              "score": 1.0
+            },
+            {
+              "turn": 6,
+              "score": 1.0
+            },
+            {
+              "turn": 7,
+              "score": 1.0
+            },
+            {
+              "turn": 8,
+              "score": 1.0
+            },
+            {
+              "turn": 9,
+              "score": 1.0
+            },
+            {
+              "turn": 10,
+              "score": 1.0
+            },
+            {
+              "turn": 11,
+              "score": 1.0
+            },
+            {
+              "turn": 12,
+              "score": 1.0
+            },
+            {
+              "turn": 13,
+              "score": 1.0
+            },
+            {
+              "turn": 14,
+              "score": 1.0
+            },
+            {
+              "turn": 15,
+              "score": 1.0
+            },
+            {
+              "turn": 16,
+              "score": 1.0
+            },
+            {
+              "turn": 17,
+              "score": 1.0
+            }
+          ]
+        },
+        "tool_call_quality": {
+          "total_tool_calls": 41,
+          "mean_compression": 1.87,
+          "by_tool": {
+            "web_search": {
+              "calls": 14,
+              "mean_ratio": 3.55,
+              "tokens_saved": 4177
+            },
+            "places_search": {
+              "calls": 19,
+              "mean_ratio": 1.0,
+              "tokens_saved": 0
+            },
+            "weather_fetch": {
+              "calls": 1,
+              "mean_ratio": 1.0,
+              "tokens_saved": 0
+            },
+            "budget_tracker": {
+              "calls": 7,
+              "mean_ratio": 1.0,
+              "tokens_saved": 0
+            }
+          },
+          "total_tokens_saved": 4177
+        },
+        "long_horizon_robustness": {
+          "turns_evaluated": 12,
+          "constraints_present": 5,
+          "robustness_rate": 0.417,
+          "first_loss_turn": 15,
+          "context_overflow_turns": [
+            16,
+            17,
+            15
+          ]
+        }
+      }
+    }
+  },
+  "layer_6": {
+    "description": "Layer 6: Knowledge Graph Conflict Detector evaluation. Uses state injection (no LLM call) to test conflict detection accuracy at the trigger turn of each official test A-E.",
+    "approach": "hybrid static ontology + dynamic DDGS web_search (pre-seeded in CI)",
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "by_test": {
+      "A": true,
+      "B": true,
+      "C": true,
+      "D": true,
+      "E": true
+    },
+    "results": [
+      {
+        "test_id": "A",
+        "name": "The Forgotten Allergy",
+        "trigger_message": "Find me the best dinner spots in Tsukiji area",
+        "passed": true,
+        "l6_must_detect_conflict": true,
+        "conflicts_detected": 1,
+        "conflict_summaries": [
+          {
+            "chain": [
+              "tsukiji",
+              "seafood",
+              "shellfish"
+            ],
+            "chain_display": "tsukiji \u2192 seafood \u2192 shellfish",
+            "severity": "HIGH",
+            "confidence": 0.75,
+            "constraint": "shellfish",
+            "action": "Filter recommendations to exclude shellfish. Suggest shellfish-free alternatives."
+          }
+        ],
+        "conflict_block_in_prompt": true,
+        "conflict_pos": 0,
+        "persona_pos": 289,
+        "prompt_preview": "[CONFLICT DETECTED \u2014 READ FIRST]\nUser's request may violate stated constraints:\n- Chain: tsukiji \u2192 seafood \u2192 shellfish (confidence 0.75)\n  Constraint: shellfish\n  Severity: HIGH\n  Action: Filter recommendations to exclude shellfish. Suggest shellfish-free alternatives.\n\nYou are an expert travel conc",
+        "assertion_description": "\u22651 conflict detected, shellfish in chain, [CONFLICT DETECTED] block prepended before persona in system prompt",
+        "duration_ms": 590,
+        "error": null
+      },
+      {
+        "test_id": "B",
+        "name": "The Budget Anchor",
+        "trigger_message": "Find me a hotel on the Amalfi Coast",
+        "passed": true,
+        "l6_must_detect_conflict": false,
+        "conflicts_detected": 0,
+        "conflict_summaries": [],
+        "conflict_block_in_prompt": false,
+        "conflict_pos": -1,
+        "persona_pos": 18,
+        "prompt_preview": "You are an expert travel concierge with perfect memory of this customer's preferences and constraints. You proactively flag conflicts and never ask the customer to repeat information.\n\nBUDGET STATUS (current):\nTotal: $2,500.00 | Spent: $1,550.00 | Remaining: $950.00\nNever recommend any single option",
+        "assertion_description": "0 conflicts detected (no allergies), no [CONFLICT DETECTED] block in system prompt",
+        "duration_ms": 955,
+        "error": null
+      },
+      {
+        "test_id": "C",
+        "name": "The Pivot",
+        "trigger_message": "Summarize my trip plan so far.",
+        "passed": true,
+        "l6_must_detect_conflict": false,
+        "conflicts_detected": 0,
+        "conflict_summaries": [],
+        "conflict_block_in_prompt": false,
+        "conflict_pos": -1,
+        "persona_pos": 18,
+        "prompt_preview": "You are an expert travel concierge with perfect memory of this customer's preferences and constraints. You proactively flag conflicts and never ask the customer to repeat information.\n\nYOUR RULES:\n1. Reference the above constraints in every response\n2. Proactively flag conflicts before they happen\n3",
+        "assertion_description": "0 conflicts after pivot (no constraints), no [CONFLICT DETECTED] block in system prompt",
+        "duration_ms": 1034,
+        "error": null
+      },
+      {
+        "test_id": "D",
+        "name": "The Logistics Puzzle",
+        "trigger_message": "When should I take the train from Paris to Amsterdam?",
+        "passed": true,
+        "l6_must_detect_conflict": false,
+        "conflicts_detected": 0,
+        "conflict_summaries": [],
+        "conflict_block_in_prompt": false,
+        "conflict_pos": -1,
+        "persona_pos": 18,
+        "prompt_preview": "You are an expert travel concierge with perfect memory of this customer's preferences and constraints. You proactively flag conflicts and never ask the customer to repeat information.\n\nSCHEDULE CONSTRAINTS:\nMeeting: Wednesday 2:00pm, near Eiffel Tower, Paris. Customer CANNOT leave on Wednesday. Earl",
+        "assertion_description": "0 conflicts (temporal constraint, no allergens), no [CONFLICT DETECTED] block in system prompt",
+        "duration_ms": 280,
+        "error": null
+      },
+      {
+        "test_id": "E",
+        "name": "The Contradiction Detector",
+        "trigger_message": "OK book all of these for my 3-day trip",
+        "passed": true,
+        "l6_must_detect_conflict": false,
+        "conflicts_detected": 0,
+        "conflict_summaries": [],
+        "conflict_block_in_prompt": false,
+        "conflict_pos": -1,
+        "persona_pos": 18,
+        "prompt_preview": "You are an expert travel concierge with perfect memory of this customer's preferences and constraints. You proactively flag conflicts and never ask the customer to repeat information.\n\nDIETARY PREFERENCES: Customer is vegetarian. Filter all food recommendations accordingly.\n\nUSER PREFERENCES:\nMax 2 ",
+        "assertion_description": "System prompt intact with max-activities constraint, Layer 6 does not corrupt Layer 1 output",
+        "duration_ms": 0,
+        "error": null
+      }
+    ],
+    "key_metrics": {
+      "true_positives": 1,
+      "false_positives": 0,
+      "conflict_tests_total": 1,
+      "no_conflict_tests_total": 4
+    }
+  },
+  "layer_6_delta": {
+    "test_A_improvement": "Layer 6 adds structural pre-reasoning: instead of relying solely on Layer 1 allergy pinning surviving 14 turns of attention noise, a [CONFLICT DETECTED] block is now prepended to the system prompt at turn 16 with the explicit chain: tsukiji \u2192 seafood \u2192 shellfish (confidence 0.75, severity HIGH). This makes the constraint mechanically visible to SmolLM2 at position 0 of the system prompt.",
+    "tests_B_C_D_unchanged": "Tests B (budget), C (pivot), D (temporal) have no food allergens. Layer 6 correctly produces 0 conflicts \u2014 no false positives. These tests continue to be handled by Layers 1/3/4.",
+    "test_E_unchanged": "Test E (activity contradiction) is handled by Layer 1 max_activities_per_day pinning. Layer 6 verifies it does not corrupt the Layer 1 system prompt."
+  }
+}

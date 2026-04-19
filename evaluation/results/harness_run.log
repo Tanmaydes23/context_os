@@ -1,0 +1,332 @@
+/home/teaching/miniconda3/envs/context_os/lib/python3.11/site-packages/torch/cuda/__init__.py:180: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 12040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  return torch._C._cuda_getDeviceCount() > 0
+WARNING:pipeline.layer0_ner:Falling back to en_core_web_sm
+WARNING:pipeline.layer2_llmlingua:LLMLingua CUDA load failed: The NVIDIA driver on your system is too old (found version 12040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver.. Falling back to CPU.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 5752.76it/s]
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 5787.88it/s]
+[1mBertModel LOAD REPORT[0m from: sentence-transformers/all-MiniLM-L6-v2
+Key                     | Status     |  | 
+------------------------+------------+--+-
+embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+`torch_dtype` is deprecated! Use `dtype` instead!
+WARNING:agent.travel_agent:Model load with rope_scaling failed (unsupported operand type(s) for ** or pow(): 'NoneType' and 'Tensor'), loading without...
+Loading weights:   0%|          | 0/218 [00:00<?, ?it/s]Loading weights:  32%|███▏      | 69/218 [00:00<00:00, 689.78it/s]Loading weights:  67%|██████▋   | 145/218 [00:00<00:00, 716.27it/s]Loading weights: 100%|██████████| 218/218 [00:00<00:00, 738.77it/s]
+
+============================================================
+CONTEXTOS OFFICIAL EVALUATION — Tests A–E
+============================================================
+
+────────────────────────────────────────────────────────────
+Test A: The Forgotten Allergy
+  Allergy stated turn 1 must survive 14 turns of tool noise
+  Turns: 16
+  Turn  1: I want to plan a 5-day trip to Tokyo and Kyoto. Budget is $3...
+         → 140577ms
+  Turn  2: Search for direct flights to Tokyo...
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 159077ms
+  Turn  3: Book the JAL flight...
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 156369ms
+  Turn  4: Find hotels in Tokyo...
+         → 94417ms
+  Turn  5: Book the Park Hyatt for 3 nights...
+         → 122714ms
+  Turn  6: What are the best areas to stay in Kyoto?...
+         → 80016ms
+  Turn  7: Find hotels in Kyoto...
+         → 58851ms
+  Turn  8: Book a ryokan for 2 nights...
+         → 87596ms
+  Turn  9: What is the transit like between Tokyo and Kyoto?...
+         → 76189ms
+  Turn 10: Book a shinkansen ticket...
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 86020ms
+  Turn 11: What are popular activities in Tokyo?...
+         → 149797ms
+  Turn 12: What temples should I visit in Kyoto?...
+         → 89665ms
+  Turn 13: Find restaurants near Fushimi Inari...
+         → 150827ms
+  Turn 14: What is the best time to visit Arashiyama?...
+         → 152999ms
+  Turn 15: What currency should I use in Japan?...
+         → 153274ms
+  Turn 16: Find me the best dinner spots in Tsukiji area...
+         → 154803ms
+
+  Result: ✗ FAIL
+  Failure: Agent recommended shellfish/Tsukiji without allergy warning
+  Output: Title: What to do in Tokyo
+
+[COMPRESSED] [SUMMARIZED]
+
+Title: What to do in Tokyo
+
+[COMPRESSED] [SUMMARIZED]
+
+Title: What to do in Tokyo
+
+[COMPRESSED] [SUMMARIZED]
+
+Title: What to do in Tokyo
+
+[COMPRE...
+  [checkpoint saved → evaluation/results/checkpoint.json]
+
+────────────────────────────────────────────────────────────
+Test B: The Budget Anchor
+  Running budget must be tracked correctly across 20 turns
+  Turns: 17
+  Turn  1: Planning Italy — Rome, Florence, Amalfi Coast. 7 days, max b...
+         → 137531ms
+  Turn  2: Find flights to Rome...
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 87074ms
+  Turn  3: Book the cheapest flight — $800...
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 50227ms
+  Turn  4: Find hotels in Rome...
+         → 139016ms
+  Turn  5: Book a 3-night hotel in Rome for $400 total...
+         → 100769ms
+  Turn  6: What are the must-see sights in Rome?...
+         → 103188ms
+  Turn  7: Book the Colosseum tour...
+         → 147959ms
+  Turn  8: Find restaurants in Trastevere...
+         → 151967ms
+  Turn  9: How do I get from Rome to Florence?...
+         → 98991ms
+  Turn 10: Book a train from Rome to Florence...
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 104704ms
+  Turn 11: Find hotels in Florence...
+         → 73186ms
+  Turn 12: Book 2 nights in Florence for $350 total...
+         → 74295ms
+  Turn 13: What should I see in Florence?...
+         → 78729ms
+  Turn 14: Find the Uffizi Gallery tickets...
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 152945ms
+  Turn 15: How do I get to the Amalfi Coast from Florence?...
+         → 151301ms
+  Turn 16: What is the best base for the Amalfi Coast?...
+         → 151580ms
+  Turn 17: Find me a hotel on the Amalfi Coast...
+         → 100778ms
+
+  Result: ✗ FAIL
+  Failure: Agent suggested expensive hotel without flagging $950 remaining
+  Output: Title: 5-star hotels in Positano, Italy
+
+No places found for: Find hotels in Positano italy
+No places found for: Book a 2-night hotel in Positano for $250 total Italy
+
+No places found for: Find hotels...
+  [checkpoint saved → evaluation/results/checkpoint.json]
+
+────────────────────────────────────────────────────────────
+Test C: The Pivot
+  After pivot to Switzerland, zero Bali content should appear
+  Turns: 17
+  Turn  1: Plan me a beach vacation in Bali for next month....
+         → 4011ms
+  Turn  2: Find flights to Bali...
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 8577ms
+  Turn  3: Find beach resorts in Seminyak...
+         → 5468ms
+  Turn  4: What surf lessons are available in Bali?...
+         → 4456ms
+  Turn  5: Find temple tours in Ubud...
+         → 139669ms
+  Turn  6: What is the best beach in Bali?...
+         → 6118ms
+  Turn  7: Actually, scratch Bali entirely. Let's do Switzerland instea...
+         → 21710ms
+  Turn  8: Find flights to Zurich...
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 55322ms
+  Turn  9: What are the best mountain destinations in Switzerland?...
+         → 8563ms
+  Turn 10: Find hotels in Interlaken...
+         → 55073ms
+  Turn 11: What hiking trails are near Grindelwald?...
+         → 52800ms
+  Turn 12: Find restaurants in Zurich...
+         → 56849ms
+  Turn 13: What is the weather like in the Swiss Alps?...
+         → 78029ms
+  Turn 14: Book a hotel in Interlaken...
+         → 133651ms
+  Turn 15: What activities are available in Lucerne?...
+         → 147761ms
+  Turn 16: Find day trips from Zurich...
+         → 149596ms
+  Turn 17: Summarize my trip plan so far....
+         → 149415ms
+
+  Result: ✗ FAIL
+  Failure: Summary contained Bali references after pivot to Switzerland
+  Output: Title: ₹ 10,730 CHEAP FLIGHTS to Bali | KAYAK
+
+Result 1: Title: Cheap Flights from Bali to Zürich | AirAsia
+Result 2: Title: Etihad flights from Zurich to Bali from €580
+
+Recommend a hotel in Lucerne ...
+  [checkpoint saved → evaluation/results/checkpoint.json]
+
+────────────────────────────────────────────────────────────
+Test D: The Logistics Puzzle
+  Wednesday 2pm meeting means train must be Thursday morning
+  Turns: 15
+  Turn  1: I'm planning 6 days: 3 in Paris, 3 in Amsterdam. I have a me...
+         → 92822ms
+  Turn  2: Find flights to Paris...
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 100709ms
+  Turn  3: Find hotels near the Eiffel Tower in Paris...
+         → 107513ms
+  Turn  4: Book a hotel for 3 nights...
+         → 150527ms
+  Turn  5: What should I see in Paris?...
+         → 146637ms
+  Turn  6: Find restaurants near the Louvre...
+         → 135168ms
+  Turn  7: What is the best way to get around Paris?...
+         → 128527ms
+  Turn  8: Book the Louvre tickets...
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 91660ms
+  Turn  9: Find hotels in Amsterdam...
+         → 144066ms
+  Turn 10: Book a canal-side hotel in Amsterdam for 3 nights...
+         → 148223ms
+  Turn 11: What are the must-see sights in Amsterdam?...
+         → 92193ms
+  Turn 12: Find Anne Frank House tickets...
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 93512ms
+  Turn 13: Find canal tour options in Amsterdam...
+         → 23058ms
+  Turn 14: Book the Anne Frank House tickets...
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 31036ms
+  Turn 15: When should I take the train from Paris to Amsterdam?...
+WARNING:pipeline.layer2_llmlingua:LLMLingua compression failed for web_search: too many values to unpack (expected 2)
+WARNING:pipeline.layer5_scorer:BART unavailable — summarization will use truncation fallback
+         → 41804ms
+
+  Result: ✗ FAIL
+  Failure: Agent suggested Wednesday departure despite 2pm Wednesday meeting
+  Output: Title: Paris to Amsterdam Train Tickets from €32.62 | Rail Europe The Paris to Amsterdam train times are convenient, with frequent departures throughout the day, making it easy to fit your trip into a...
+  [checkpoint saved → evaluation/results/checkpoint.json]
+
+────────────────────────────────────────────────────────────
+Test E: The Contradiction Detector
+  15 activities for 3-day trip violates max-2-per-day preference
+  Turns: 17
+  Turn  1: I want a relaxing trip. No packed schedules. Max 2 activitie...
+         → 62660ms
+  Turn  2: I'm planning 3 days in Barcelona....
+         → 69466ms
+  Turn  3: What are the best things to do in Barcelona?...
+         → 34568ms
+  Turn  4: Tell me about Sagrada Familia...
+         → 21465ms
+  Turn  5: Tell me about Park Güell...
+         → 22137ms
+  Turn  6: Tell me about the Gothic Quarter...
+         → 35526ms
+  Turn  7: Tell me about Camp Nou...
+         → 20836ms
+  Turn  8: Tell me about Barceloneta Beach...
+         → 67956ms
+  Turn  9: Tell me about Picasso Museum...
+         → 42895ms
+  Turn 10: Tell me about La Boqueria market...
+         → 35088ms
+  Turn 11: Tell me about Montjuïc castle...
+         → 42919ms
+  Turn 12: Tell me about Tibidabo amusement park...
+         → 65002ms
+  Turn 13: Tell me about Casa Batlló...
+         → 126965ms
+  Turn 14: Tell me about El Born neighborhood...
+         → 120491ms
+  Turn 15: Tell me about Palau de la Música...
+         → 124573ms
+  Turn 16: Tell me about MACBA museum...
+         → 108190ms
+  Turn 17: OK book all of these for my 3-day trip...
+         → 65677ms
+
+  Result: ✓ PASS
+  Output: I'm glad you found this information helpful. Here's a detailed itinerary for your 3-day trip:
+
+Day 1...
+  [checkpoint saved → evaluation/results/checkpoint.json]
+
+────────────────────────────────────────────────────────────
+Computing metrics...
+
+============================================================
+RESULTS SUMMARY
+============================================================
+
+Task Success:          1/5 tests passed (20%)
+  Test A: ✗ The Forgotten Allergy
+  Test B: ✗ The Budget Anchor
+  Test C: ✗ The Pivot
+  Test D: ✗ The Logistics Puzzle
+  Test E: ✓ The Contradiction Detector
+
+Token Efficiency:
+  Mean compression ratio:    6.37x
+  Peak compression ratio:    17.64x
+  Baseline overflow turns:   5
+  Compressed overflow turns: 0
+
+Factual Retention:
+  Allergy retention rate:    19.5%
+  Budget retention rate:     40.2%
+  Constraint lost at turns:  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+
+Coherence:
+  Mean coherence score:      97.1%
+  Incoherent turns:          []
+
+Tool Call Quality:
+  Mean tool compression:     1.87x
+  Total tokens saved:        4,177
+  web_search            3.55x  (14 calls)
+  places_search         1.0x  (19 calls)
+  weather_fetch         1.0x  (1 calls)
+  budget_tracker        1.0x  (7 calls)
+
+Long Horizon Robustness (turn 15+):
+  Robustness rate:           41.7%
+  First constraint loss:     15
+
+Metrics exported: evaluation/results/metrics_report.csv
+Full results:    evaluation/results/eval_20260418_024737.json
+Checkpoint removed (run complete).
+============================================================
+
