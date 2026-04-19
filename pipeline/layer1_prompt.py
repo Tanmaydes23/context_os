@@ -2,7 +2,7 @@
 pipeline/layer1_prompt.py
 Layer 1: Dynamic System Prompt Builder
 
-Reads TripState → formats as LLM system prompt.
+Reads ContextState → formats as LLM system prompt.
 Runs before every single LLM call. Never cached.
 """
 import logging
