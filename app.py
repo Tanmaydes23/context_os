@@ -29,11 +29,158 @@ def clean_response(text: str) -> str:
     return cleaned.strip()
 
 
+# ─────────────────────────────────────────────────────────────────────────────
+# CSS — theme-adaptive; uses Gradio CSS variables so panels look correct
+# in both light and dark mode.
+# ─────────────────────────────────────────────────────────────────────────────
 CSS = """
-#bypass-btn { font-weight: bold; letter-spacing: 0.02em; transition: all 0.2s; }
 footer { display: none !important; }
-.ctx-new   { background:#D1FAE5 !important; color:#065F46 !important; }
-.ctx-changed { background:#FEF3C7 !important; color:#92400E !important; }
+
+/* ── Header ─────────────────────────────────────────────────────────── */
+#ctx-header-wrap {
+  background: #0a0f1e;
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  border: 1px solid #1e2d4d;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+
+/* ── ContextOS ON/OFF pill button ────────────────────────────────────── */
+#bypass-btn {
+  border-radius: 24px !important;
+  font-weight: 700 !important;
+  font-size: 0.85em !important;
+  letter-spacing: 0.04em !important;
+  padding: 6px 18px !important;
+  transition: all 0.2s !important;
+  white-space: nowrap !important;
+  min-width: 192px !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* ── Input row ───────────────────────────────────────────────────────── */
+#msg-box textarea {
+  font-size: 0.88em !important;
+  min-height: 48px !important;
+}
+#send-btn {
+  min-width: 80px !important;
+  max-width: 80px !important;
+  font-weight: 600 !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+}
+#new-session-btn {
+  min-width: 120px !important;
+  max-width: 120px !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+}
+
+/* ── Right-panel blocks ──────────────────────────────────────────────── */
+.ctx-panel {
+  border: 1px solid var(--border-color-primary, #2d3748);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  background: var(--block-background-fill, #1a2234);
+}
+.ctx-panel-title {
+  font-size: 0.68em;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--body-text-color-subdued, #94a3b8);
+  margin-bottom: 8px;
+}
+.ctx-body-text {
+  color: var(--body-text-color, #e2e8f0);
+  font-size: 0.85em;
+}
+.ctx-muted { color: var(--body-text-color-subdued, #94a3b8); }
+
+/* ── Context State Inspector ─────────────────────────────────────────── */
+.ctx-state-wrap {
+  font-size: 0.95em;
+  max-height: 440px;
+  overflow-y: auto;
+  padding: 2px 4px;
+}
+.ctx-state-header {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  background: var(--block-background-fill, #1a2234);
+  border-radius: 8px;
+  padding: 8px 14px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border-color-primary, #2d3748);
+  align-items: center;
+}
+.ctx-state-section-title {
+  font-size: 0.66em;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #94a3b8;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--border-color-primary, #2d3748);
+  padding-bottom: 3px;
+}
+.ctx-field-label {
+  color: #94a3b8;
+  font-size: 0.82em;
+  white-space: nowrap;
+  vertical-align: top;
+  min-width: 110px;
+  padding: 3px 8px 3px 0;
+}
+.ctx-field-value {
+  color: var(--body-text-color, #e2e8f0);
+  font-size: 0.88em;
+  font-weight: 600;
+}
+
+/* ── Diff badges ─────────────────────────────────────────────────────── */
+.ctx-badge-new {
+  background: #065F46; color: #D1FAE5;
+  font-size: 0.67em; font-weight: 800;
+  padding: 1px 7px; border-radius: 10px;
+  margin-left: 6px; vertical-align: middle;
+}
+.ctx-badge-changed {
+  background: #78350F; color: #FEF3C7;
+  font-size: 0.67em; font-weight: 800;
+  padding: 1px 7px; border-radius: 10px;
+  margin-left: 6px; vertical-align: middle;
+}
+
+/* ── Example accordions ──────────────────────────────────────────────── */
+.ctx-ex-acc > .label-wrap {
+  padding: 8px 14px !important;
+  font-size: 0.86em !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+}
+.ctx-ex-acc {
+  border: 1px solid var(--border-color-primary, #2d3748) !important;
+  border-radius: 8px !important;
+  margin-bottom: 5px !important;
+}
+.ctx-inject-btn {
+  font-size: 0.82em !important;
+  font-weight: 700 !important;
+  border-radius: 6px !important;
+  padding: 5px 16px !important;
+}
 """
 
 PIPELINE_STAGES = [
@@ -48,8 +195,55 @@ PIPELINE_STAGES = [
 
 BUDGET_TOTAL = 1500
 
+# ── Example prompts per category ──────────────────────────────────────────────
+EXAMPLES = {
+    "✈️ Travel Agent": [
+        ("10-day Tokyo + Kyoto trip",
+         "I want to plan a 10-day trip to Tokyo and Kyoto. Budget is $4,000 total. "
+         "I'm severely allergic to shellfish. Solo traveler, max 2 activities per day."),
+        ("Pivot — switch destination",
+         "Actually, scratch Bali. Let's do Switzerland instead — I want mountains and "
+         "hiking. Same $3,500 budget, celiac disease so gluten-free only."),
+        ("Rome + Amalfi 7-day trip",
+         "I'm planning Rome, Florence, and Amalfi Coast. 7 days, max budget $2,500. "
+         "Solo traveler. Find me good budget hotels and what to pack."),
+        ("Flight search",
+         "Find me the cheapest flights to Tokyo from London in mid-July."),
+    ],
+    "🛎️ Customer Service": [
+        ("Warranty expiry + meeting constraint",
+         "My laptop warranty expires March 15th and I have a board meeting every "
+         "Wednesday at 2 pm. I need a replacement charger before then."),
+        ("Damaged order refund",
+         "I ordered product #TK-3829 last week but it arrived damaged. "
+         "I need a replacement shipped with expedited shipping — budget $50."),
+        ("Subscription not active",
+         "The premium subscription I purchased yesterday for $29.99 isn't showing "
+         "on my account. My account email is user@example.com."),
+        ("Technical support escalation",
+         "My router (model XT-2200) keeps dropping connection every 2 hours. "
+         "I've tried resetting it 3 times. I need an escalated support ticket."),
+    ],
+    "💻 Coding Agent": [
+        ("Python 3.8 CLI tool",
+         "Building a Python 3.8 CLI tool, stdlib only, needs to run on Windows "
+         "and Linux. No third-party packages allowed. Task: parse CSV, compute stats."),
+        ("Node → FastAPI migration",
+         "Migrate our Node.js Express app to FastAPI — we have 12 REST endpoints, "
+         "PostgreSQL database, JWT auth. Python 3.11 target."),
+        ("Docker crash exit 137",
+         "Our Docker container crashes on startup with exit code 137. "
+         "It's a Python ML app loading a 4GB model. OOM suspected."),
+        ("React performance issue",
+         "Our React dashboard re-renders 3× per second even with no user input. "
+         "We use Redux, Chart.js, and 50+ components. How do we profile this?"),
+    ],
+}
 
-# ── Session state ─────────────────────────────────────────────────────
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Session state
+# ─────────────────────────────────────────────────────────────────────────────
 def _empty_state() -> dict:
     trip_state, history, session_vector, recent_buffer = new_session()
     return {
@@ -61,35 +255,60 @@ def _empty_state() -> dict:
         "token_log":           [],
         "last_metrics":        {},
         "violations":          0,
-        "prev_state_snapshot": None,   # for diff highlighting in context state panel
+        "prev_state_snapshot": None,
     }
 
 
-# ── HTML builders ─────────────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# HTML builders — all use CSS variables so they adapt to light / dark mode
+# ─────────────────────────────────────────────────────────────────────────────
+
+_LOGO_SVG = """
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+     xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+  <rect width="36" height="36" rx="9" fill="#1e3a5f"/>
+  <circle cx="18" cy="18" r="11" stroke="#60a5fa" stroke-width="1.8" fill="none"/>
+  <!-- converging arrows = compression -->
+  <polyline points="26,12 18,18 26,24" stroke="#34d399" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <polyline points="10,12 18,18 10,24" stroke="#60a5fa" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="18" cy="18" r="2.2" fill="#a78bfa"/>
+</svg>
+"""
+
 
 def _header_html() -> str:
-    return """
-    <div style="background:linear-gradient(135deg,#1e3a5f 0%,#0f172a 100%);
-                border-radius:12px;padding:18px 24px;margin-bottom:8px;
-                display:flex;justify-content:space-between;align-items:center;
-                flex-wrap:wrap;gap:12px">
-      <div>
-        <div style="font-size:1.7em;font-weight:800;color:#ffffff;
-                    letter-spacing:-0.02em;line-height:1.1">ContextOS</div>
-        <div style="font-size:0.9em;color:#93c5fd;margin-top:3px;font-weight:500">
-          Generalised Context Compression for AI Agents
-        </div>
-        <div style="font-size:0.75em;color:#64748b;margin-top:2px">
-          HCLTech Hackathon 2026 &nbsp;|&nbsp; IIT Mandi
+    return f"""
+    <div id="ctx-header-wrap">
+      <div style="display:flex;align-items:center;gap:12px">
+        {_LOGO_SVG}
+        <div>
+          <div style="font-size:1.65em;font-weight:800;font-style:italic;
+                      color:#f8fafc;letter-spacing:-0.03em;line-height:1.0">
+            <em>ContextOS</em>
+          </div>
+          <div style="font-size:0.88em;color:#93c5fd;margin-top:3px;font-weight:500">
+            Generalised Context Compression for AI Agents
+          </div>
+          <div style="font-size:0.75em;color:#94a3b8;margin-top:2px">
+            HCLTech Hackathon 2026 &nbsp;·&nbsp; IIT Mandi
+          </div>
         </div>
       </div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-        <span style="background:#1e40af;color:#bfdbfe;padding:4px 12px;border-radius:20px;
-                     font-size:0.72em;font-weight:700">Qwen2.5-3B</span>
-        <span style="background:#064e3b;color:#a7f3d0;padding:4px 12px;border-radius:20px;
-                     font-size:0.72em;font-weight:700">1,500 token budget</span>
-        <span style="background:#3b0764;color:#e9d5ff;padding:4px 12px;border-radius:20px;
-                     font-size:0.72em;font-weight:700">6 pipeline layers</span>
+      <div style="display:flex;gap:7px;flex-wrap:wrap;align-items:center">
+        <span style="background:#1e3a5f;color:#93c5fd;padding:3px 11px;border-radius:20px;
+                     font-size:0.7em;font-weight:700;border:1px solid #2563eb33">
+          Qwen2.5-3B
+        </span>
+        <span style="background:#052e16;color:#86efac;padding:3px 11px;border-radius:20px;
+                     font-size:0.7em;font-weight:700;border:1px solid #16a34a33">
+          1,500 tok budget
+        </span>
+        <span style="background:#2e1065;color:#d8b4fe;padding:3px 11px;border-radius:20px;
+                     font-size:0.7em;font-weight:700;border:1px solid #7c3aed33">
+          7 pipeline layers
+        </span>
       </div>
     </div>
     """
@@ -97,50 +316,46 @@ def _header_html() -> str:
 
 def _processing_html(bypass: bool) -> str:
     if bypass:
-        return """
-        <div style="background:#1a2744;border-radius:8px;padding:14px;
-                    border-left:4px solid #f59e0b;font-family:monospace;
-                    font-size:0.85em;line-height:1.7">
-          <b style="color:#f59e0b">⚡ BYPASS MODE</b> — full history sent directly to LLM<br>
-          <span style="color:#94a3b8">Compression pipeline: <s>skipped</s></span><br>
-          <span style="color:#60a5fa">⏳ Waiting for LLM response…</span>
-        </div>
-        """
+        return (
+            '<div style="background:var(--block-background-fill,#1a2234);border-radius:8px;'
+            'padding:12px 14px;border-left:4px solid #f59e0b;font-family:monospace;'
+            'font-size:0.84em;line-height:1.7">'
+            '<b style="color:#f59e0b">⚡ BYPASS MODE</b> — full history sent to LLM<br>'
+            '<span class="ctx-muted">Compression pipeline: <s>skipped</s></span><br>'
+            '<span style="color:#60a5fa">⏳ Waiting for LLM response…</span>'
+            '</div>'
+        )
     rows = "".join(
-        f'<div style="color:#64748b">⬜ {name} — {desc}</div>'
+        f'<div class="ctx-muted">⬜ {name} — {desc}</div>'
         for name, desc in PIPELINE_STAGES
     )
-    return f"""
-    <div style="background:#1a2744;border-radius:8px;padding:14px;
-                border-left:4px solid #3b82f6;font-family:monospace;
-                font-size:0.85em;line-height:1.7">
-      <b style="color:#3b82f6">🔄 Running compression pipeline…</b>
-      <div style="margin-top:8px">{rows}</div>
-      <div style="margin-top:8px;color:#60a5fa">⏳ Please wait…</div>
-    </div>
-    """
-
-
-def _panel_wrap(title: str, body: str, bottom_margin: str = "10px") -> str:
     return (
-        f'<div style="border:1px solid #e5e7eb;border-radius:10px;padding:14px 16px;'
-        f'margin-bottom:{bottom_margin};box-shadow:0 1px 3px rgba(0,0,0,0.06)">'
-        f'<div style="font-size:0.72em;font-weight:700;text-transform:uppercase;'
-        f'letter-spacing:0.08em;color:#6b7280;margin-bottom:8px">{title}</div>'
+        '<div style="background:var(--block-background-fill,#1a2234);border-radius:8px;'
+        'padding:12px 14px;border-left:4px solid #3b82f6;font-family:monospace;'
+        'font-size:0.84em;line-height:1.7">'
+        '<b style="color:#3b82f6">🔄 Running compression pipeline…</b>'
+        f'<div style="margin-top:8px">{rows}</div>'
+        '<div style="margin-top:8px;color:#60a5fa">⏳ Please wait…</div>'
+        '</div>'
+    )
+
+
+def _panel_wrap(title: str, body: str, bottom_margin: str = "8px") -> str:
+    return (
+        f'<div class="ctx-panel" style="margin-bottom:{bottom_margin}">'
+        f'<div class="ctx-panel-title">{title}</div>'
         f'{body}</div>'
     )
 
 
 def _placeholder_body() -> str:
-    return '<span style="color:#9ca3af;font-size:0.82em">Send a message to see metrics.</span>'
+    return '<span class="ctx-muted" style="font-size:0.82em">Send a message to see metrics.</span>'
 
 
 def _placeholder_panels() -> tuple:
-    titles = [
-        "COMPRESSION", "TOKEN BUDGET", "ACTIVE CONSTRAINTS",
-        "KNOWLEDGE GRAPH", "PIPELINE TIMING", "SESSION STATS",
-    ]
-    margins = ["10px", "10px", "10px", "10px", "10px", "0px"]
+    titles  = ["COMPRESSION", "TOKEN BUDGET", "ACTIVE CONSTRAINTS",
+               "KNOWLEDGE GRAPH", "PIPELINE TIMING", "SESSION STATS"]
+    margins = ["8px", "8px", "8px", "8px", "8px", "0px"]
     return tuple(_panel_wrap(t, _placeholder_body(), m) for t, m in zip(titles, margins))
 
 
@@ -151,25 +366,30 @@ def _compression_panel_html(metrics: dict, bypass: bool) -> str:
     ratio      = metrics.get("compression_ratio", 1.0)
 
     if bypass:
-        badge = ('<span style="background:#FEF3C7;color:#92400E;font-size:2em;font-weight:800;'
-                 'padding:6px 16px;border-radius:8px">1.0×</span>')
-        sub = '<span style="color:#6b7280;font-size:0.85em">bypass mode — no compression</span>'
+        badge = ('<span style="background:#78350F;color:#FEF3C7;font-size:2em;font-weight:800;'
+                 'padding:5px 14px;border-radius:8px">1.0×</span>')
+        sub = '<span class="ctx-muted" style="font-size:0.85em">bypass — no compression</span>'
     else:
         if ratio >= 5.0:
-            bg, fg = "#D1FAE5", "#065F46"
+            bg, fg = "#065F46", "#D1FAE5"
         elif ratio >= 2.0:
-            bg, fg = "#FEF3C7", "#92400E"
+            bg, fg = "#78350F", "#FEF3C7"
         else:
-            bg, fg = "#FEE2E2", "#991B1B"
+            bg, fg = "#7F1D1D", "#FEE2E2"
         badge = (f'<span style="background:{bg};color:{fg};font-size:2.2em;font-weight:800;'
-                 f'padding:6px 18px;border-radius:8px;letter-spacing:-0.02em">{ratio:.1f}×</span>')
-        sub = (f'<div><div style="color:#111827;font-weight:600;font-size:0.9em">'
-               f'tokens compressed this turn</div>'
-               f'<div style="color:#6b7280;font-size:0.79em;margin-top:2px">'
-               f'Baseline: {baseline:,} → Compressed: {compressed:,}</div></div>')
+                 f'padding:5px 16px;border-radius:8px;letter-spacing:-0.02em">{ratio:.1f}×</span>')
+        pct   = round((1 - compressed / baseline) * 100, 0) if baseline else 0
+        sub   = (
+            f'<div>'
+            f'<div style="color:var(--body-text-color,#e2e8f0);font-weight:600;font-size:0.88em">'
+            f'Saved {int(pct)}% this turn</div>'
+            f'<div class="ctx-muted" style="font-size:0.78em;margin-top:2px">'
+            f'{baseline:,} → {compressed:,} tokens</div>'
+            f'</div>'
+        )
 
     body = f'<div style="display:flex;align-items:center;gap:12px">{badge}{sub}</div>'
-    return _panel_wrap("COMPRESSION", body)
+    return _panel_wrap("COMPRESSION RATIO", body)
 
 
 def _token_budget_html(metrics: dict) -> str:
@@ -191,29 +411,26 @@ def _token_budget_html(metrics: dict) -> str:
     wf = max(0.0, 100.0 - wr - wrc - wi - wc)
 
     segments = [
-        (wr,  "#3B82F6"),
-        (wrc, "#10B981"),
-        (wi,  "#F59E0B"),
-        (wc,  "#6B7280"),
-        (wf,  "#f3f4f6"),
+        (wr,  "#3B82F6"), (wrc, "#10B981"),
+        (wi,  "#F59E0B"), (wc,  "#6B7280"), (wf,  "#1e2d40"),
     ]
     seg_html = "".join(
         f'<div style="width:{sw}%;background:{sc};transition:width 0.3s"></div>'
         for sw, sc in segments
     )
-    bar = (f'<div style="height:14px;border-radius:7px;overflow:hidden;'
-           f'display:flex;background:#f3f4f6;margin-bottom:8px">{seg_html}</div>')
+    bar = (f'<div style="height:12px;border-radius:6px;overflow:hidden;'
+           f'display:flex;background:#1e2d40;margin-bottom:8px">{seg_html}</div>')
 
-    usage = (f'<div style="color:#374151;font-size:0.82em;margin-bottom:8px">'
-             f'<b>{total_used:,}</b> / {BUDGET_TOTAL:,} tokens used '
-             f'<span style="color:#6b7280">({pct}%)</span></div>')
+    usage = (f'<div style="color:var(--body-text-color,#e2e8f0);font-size:0.82em;'
+             f'margin-bottom:8px"><b>{total_used:,}</b>'
+             f'<span class="ctx-muted"> / {BUDGET_TOTAL:,} tokens used ({pct}%)</span></div>')
 
     def legend(color: str, label: str, count: int) -> str:
-        return (f'<span style="font-size:0.75em;color:#374151;display:flex;'
-                f'align-items:center;gap:4px">'
-                f'<span style="width:10px;height:10px;background:{color};'
+        return (f'<span style="font-size:0.74em;color:var(--body-text-color,#e2e8f0);'
+                f'display:flex;align-items:center;gap:4px">'
+                f'<span style="width:9px;height:9px;background:{color};'
                 f'border-radius:2px;display:inline-block;flex-shrink:0"></span>'
-                f'{label} ({count})</span>')
+                f'{label} <span class="ctx-muted">({count})</span></span>')
 
     legends = "".join([
         legend("#3B82F6", "Retrieved", retrieved),
@@ -226,84 +443,77 @@ def _token_budget_html(metrics: dict) -> str:
 
 
 def _constraints_html(context_state) -> str:
-    """Build constraint pills directly from a live ContextState object."""
-    pills = []
-
     def pill(bg: str, fg: str, icon: str, text: str) -> str:
-        return (f'<span style="background:{bg};color:{fg};padding:4px 10px;'
-                f'border-radius:20px;font-size:0.8em;font-weight:600;'
-                f'white-space:nowrap">{icon} {text}</span>')
+        return (f'<span style="background:{bg};color:{fg};padding:3px 10px;'
+                f'border-radius:20px;font-size:0.79em;font-weight:600;'
+                f'white-space:nowrap;display:inline-block">{icon} {text}</span>')
 
     if context_state is None:
-        body = '<span style="color:#9ca3af;font-size:0.85em">No constraints detected yet</span>'
+        body = '<span class="ctx-muted" style="font-size:0.84em">No constraints detected yet.</span>'
         return _panel_wrap("ACTIVE CONSTRAINTS", body)
 
+    pills = []
     for a in (context_state.allergies or []):
-        pills.append(pill("#FEE2E2", "#991B1B", "🚫", f"{a} allergy"))
-
+        pills.append(pill("#7F1D1D", "#FEE2E2", "🚫", f"{a} allergy"))
     if context_state.budget_remaining is not None:
-        pills.append(pill("#D1FAE5", "#065F46", "💰",
+        pills.append(pill("#052e16", "#86efac", "💰",
                           f"${context_state.budget_remaining:,.0f} remaining"))
-
     for tc in (context_state.temporal_constraints or []):
         desc = tc.description if hasattr(tc, "description") else str(tc)
-        pills.append(pill("#DBEAFE", "#1E40AF", "📅", desc))
-
+        pills.append(pill("#1e3a5f", "#93c5fd", "📅", desc))
     for tc in (context_state.technical_constraints or []):
         desc = tc.description if hasattr(tc, "description") else str(tc)
-        pills.append(pill("#EDE9FE", "#5B21B6", "⚙️", desc))
-
+        pills.append(pill("#2e1065", "#d8b4fe", "⚙️", desc))
     for p in (context_state.dietary_preferences or []):
-        pills.append(pill("#F3F4F6", "#374151", "📋", p))
+        pills.append(pill("#1e2d40", "#cbd5e1", "📋", p))
 
     if not pills:
-        body = '<span style="color:#9ca3af;font-size:0.85em">No constraints detected yet</span>'
+        body = '<span class="ctx-muted" style="font-size:0.84em">No constraints detected yet.</span>'
     else:
-        body = ('<div style="display:flex;flex-wrap:wrap;gap:6px">'
-                + "".join(pills) + "</div>")
+        body = f'<div style="display:flex;flex-wrap:wrap;gap:6px">{"".join(pills)}</div>'
     return _panel_wrap("ACTIVE CONSTRAINTS", body)
 
 
 def _kg_panel_html(metrics: dict, context_state=None) -> str:
     pivot     = metrics.get("pivot_detected", False)
-    raw_conflicts = (context_state.detected_conflicts
-                     if context_state is not None else [])
-    conflicts = raw_conflicts or []
+    conflicts = (context_state.detected_conflicts if context_state else []) or []
 
     if conflicts:
         chain = " → ".join(c.chain_display for c in conflicts[:3])
-        badge = (f'<span style="background:#FEE2E2;color:#991B1B;padding:4px 12px;'
+        badge = (f'<span style="background:#7F1D1D;color:#FEE2E2;padding:3px 12px;'
                  f'border-radius:20px;font-size:0.82em;font-weight:700">'
                  f'⚠️ Conflict: {chain}</span>')
     elif pivot:
-        badge = ('<span style="background:#FEF3C7;color:#92400E;padding:4px 12px;'
+        badge = ('<span style="background:#78350F;color:#FEF3C7;padding:3px 12px;'
                  'border-radius:20px;font-size:0.82em;font-weight:700">'
                  '🔄 Pivot detected</span>')
     else:
-        badge = ('<span style="background:#F3F4F6;color:#6B7280;padding:4px 12px;'
+        badge = ('<span style="background:#1e2d40;color:#94a3b8;padding:3px 12px;'
                  'border-radius:20px;font-size:0.82em;font-weight:600">'
                  '✓ No conflicts</span>')
 
-    return _panel_wrap("KNOWLEDGE GRAPH", badge)
+    faiss = metrics.get("faiss_items_retrieved", 0)
+    faiss_txt = (f'<span class="ctx-muted" style="font-size:0.78em;margin-left:8px">'
+                 f'FAISS retrieved: {faiss}</span>')
+    return _panel_wrap("KNOWLEDGE GRAPH", badge + faiss_txt)
 
 
 def _timing_html(metrics: dict) -> str:
     timings = metrics.get("layer_timings_ms", {})
     if not timings:
         return _panel_wrap("PIPELINE TIMING",
-                           '<span style="color:#9ca3af;font-size:0.82em">No timing data yet</span>',
-                           "10px")
-
+                           '<span class="ctx-muted" style="font-size:0.82em">No timing data yet.</span>',
+                           "8px")
     parts = []
     for layer, ms in timings.items():
         val = f"{ms / 1000:.1f}s" if ms >= 1000 else f"{ms}ms"
         parts.append(
-            f'<span style="color:#374151;font-weight:600">{layer}</span>'
-            f':<span style="color:#6b7280"> {val}</span>'
+            f'<span style="color:var(--body-text-color,#e2e8f0);font-weight:600">{layer}</span>'
+            f'<span class="ctx-muted">:{val}</span>'
         )
-    sep = ' <span style="color:#d1d5db">→</span> '
-    line = (f'<div style="font-size:0.8em;font-family:monospace;line-height:1.8;'
-            f'flex-wrap:wrap">{sep.join(parts)}</div>')
+    sep = ' <span class="ctx-muted">→</span> '
+    line = (f'<div style="font-size:0.78em;font-family:monospace;line-height:1.9;'
+            f'flex-wrap:wrap;color:var(--body-text-color,#e2e8f0)">{sep.join(parts)}</div>')
     return _panel_wrap("PIPELINE TIMING", line)
 
 
@@ -319,111 +529,96 @@ def _stats_html(session: dict) -> str:
     else:
         mean_ratio, saved = 0.0, 0
 
-    def card(label: str, value: str, color: str = "#111827") -> str:
-        return (f'<div style="background:#f9fafb;border:1px solid #e5e7eb;'
-                f'border-radius:8px;padding:10px 12px;text-align:center">'
-                f'<div style="font-size:1.25em;font-weight:800;color:{color}">{value}</div>'
-                f'<div style="font-size:0.72em;color:#6b7280;margin-top:2px">{label}</div>'
+    def card(label: str, value: str, color: str = "var(--body-text-color,#e2e8f0)") -> str:
+        return (f'<div style="background:var(--block-background-fill,#1a2234);'
+                f'border:1px solid var(--border-color-primary,#2d3748);'
+                f'border-radius:8px;padding:9px 10px;text-align:center">'
+                f'<div style="font-size:1.2em;font-weight:800;color:{color}">{value}</div>'
+                f'<div class="ctx-muted" style="font-size:0.7em;margin-top:2px">{label}</div>'
                 f'</div>')
 
-    ratio_color = ("#065F46" if mean_ratio >= 5 else
-                   "#92400E" if mean_ratio >= 2 else
-                   "#991B1B" if mean_ratio > 0 else "#6b7280")
+    ratio_color = ("#34d399" if mean_ratio >= 5 else
+                   "#fbbf24" if mean_ratio >= 2 else
+                   "#f87171" if mean_ratio > 0 else "#94a3b8")
 
     grid = "".join([
-        card("Mean Compression",     f"{mean_ratio:.1f}×" if mean_ratio > 0 else "—", ratio_color),
-        card("Turns Processed",      str(turns)),
-        card("Constraint Violations", str(violations), "#991B1B" if violations > 0 else "#065F46"),
-        card("Tokens Saved",         f"{saved:,}" if saved > 0 else "—", "#1e40af"),
+        card("Mean Compression",      f"{mean_ratio:.1f}×" if mean_ratio > 0 else "—", ratio_color),
+        card("Turns Processed",       str(turns)),
+        card("Violations",            str(violations), "#f87171" if violations > 0 else "#34d399"),
+        card("Tokens Saved",          f"{saved:,}" if saved > 0 else "—", "#60a5fa"),
     ])
-    body = f'<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">{grid}</div>'
+    body = f'<div style="display:grid;grid-template-columns:1fr 1fr;gap:7px">{grid}</div>'
     return _panel_wrap("SESSION STATS", body, "0px")
 
 
-# ── Live Context State panel ──────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# Live Context State Inspector
+# ─────────────────────────────────────────────────────────────────────────────
 
-def _ctx_badge(text: str, kind: str) -> str:
-    """Render a NEW or CHANGED inline badge."""
+def _ctx_badge(kind: str) -> str:
     if kind == "new":
-        return (f'<span style="background:#D1FAE5;color:#065F46;font-size:0.68em;'
-                f'font-weight:800;padding:1px 7px;border-radius:10px;'
-                f'margin-left:6px;vertical-align:middle">NEW</span>')
+        return '<span class="ctx-badge-new">NEW</span>'
     if kind == "changed":
-        return (f'<span style="background:#FEF3C7;color:#92400E;font-size:0.68em;'
-                f'font-weight:800;padding:1px 7px;border-radius:10px;'
-                f'margin-left:6px;vertical-align:middle">↑ CHANGED</span>')
+        return '<span class="ctx-badge-changed">↑ CHG</span>'
     return ""
 
 
-def _ctx_row(field: str, value: str, badge: str = "", mono: bool = False,
-             removed: bool = False) -> str:
-    """One key-value row inside the context state table."""
-    val_style = (
-        "font-family:monospace;" if mono else ""
-    ) + ("text-decoration:line-through;color:#9ca3af;" if removed else "color:#111827;")
+def _ctx_row(field: str, value: str, badge: str = "",
+             mono: bool = False, removed: bool = False) -> str:
+    val_style = ("font-family:monospace;" if mono else "") + (
+        "text-decoration:line-through;color:#64748b;" if removed else
+        "color:var(--body-text-color,#e2e8f0);"
+    )
     return (
         f'<tr>'
-        f'<td style="padding:3px 8px 3px 0;font-size:0.75em;color:#6b7280;'
-        f'white-space:nowrap;vertical-align:top;min-width:110px">{field}</td>'
-        f'<td style="padding:3px 0;font-size:0.8em;font-weight:600;{val_style}">'
-        f'{value}{badge}</td>'
+        f'<td class="ctx-field-label">{field}</td>'
+        f'<td class="ctx-field-value" style="{val_style}">{value}{badge}</td>'
         f'</tr>'
     )
 
 
 def _ctx_section(title: str, rows_html: str, count: int = 0) -> str:
     count_badge = (
-        f' <span style="background:#e5e7eb;color:#374151;font-size:0.75em;'
+        f' <span style="background:#1e3a5f;color:#93c5fd;font-size:0.74em;'
         f'padding:1px 7px;border-radius:10px;font-weight:700">{count}</span>'
         if count > 0 else ""
     )
     return (
         f'<div style="margin-bottom:12px">'
-        f'<div style="font-size:0.68em;font-weight:800;text-transform:uppercase;'
-        f'letter-spacing:0.1em;color:#94a3b8;margin-bottom:4px;'
-        f'border-bottom:1px solid #f1f5f9;padding-bottom:3px">'
-        f'{title}{count_badge}</div>'
+        f'<div class="ctx-state-section-title">{title}{count_badge}</div>'
         f'<table style="border-collapse:collapse;width:100%">{rows_html}</table>'
         f'</div>'
     )
 
 
 def _context_state_panel_html(state, prev_snapshot: dict | None) -> str:
-    """
-    Full-fidelity live context state inspector with per-field diff highlighting.
-    Green NEW badge = first time this field appears.
-    Orange CHANGED badge = value changed since last turn.
-    Strikethrough = item removed.
-    """
     if state is None:
-        body = ('<div style="color:#9ca3af;font-size:0.85em;padding:12px;text-align:center">'
+        return ('<div class="ctx-muted" style="font-size:0.85em;padding:16px;text-align:center">'
                 'Send a message to see the live context state.</div>')
-        return body
 
     prev = prev_snapshot or {}
     sym  = CURRENCY_SYMBOLS.get(state.budget_currency, "$")
     html = ""
 
-    # ── Header: turn + scope ───────────────────────────────────────────
+    # ── Header bar: turn + scope ───────────────────────────────────────
     scope_ch = prev.get("current_session_scope") != state.current_session_scope
     city_ch  = prev.get("current_city_scope")    != state.current_city_scope
 
     html += (
-        f'<div style="display:flex;gap:16px;flex-wrap:wrap;background:#f8fafc;'
-        f'border-radius:8px;padding:8px 14px;margin-bottom:14px;'
-        f'border:1px solid #e2e8f0;align-items:center">'
-        f'<span style="font-size:0.82em;color:#64748b">Turn</span>'
-        f'<span style="font-size:1.1em;font-weight:800;color:#0f172a">{state.current_turn}</span>'
-        f'<span style="color:#cbd5e1">|</span>'
-        f'<span style="font-size:0.78em;color:#64748b">session_scope</span>'
-        f'<code style="font-size:0.82em;background:#e0f2fe;color:#0369a1;'
-        f'padding:2px 8px;border-radius:6px">{state.current_session_scope}'
-        f'{_ctx_badge("", "changed") if scope_ch else ""}</code>'
-        f'<span style="color:#cbd5e1">|</span>'
-        f'<span style="font-size:0.78em;color:#64748b">city_scope</span>'
-        f'<code style="font-size:0.82em;background:#f0fdf4;color:#166534;'
-        f'padding:2px 8px;border-radius:6px">{state.current_city_scope or "None"}'
-        f'{_ctx_badge("", "changed") if city_ch else ""}</code>'
+        f'<div class="ctx-state-header">'
+        f'<span class="ctx-muted" style="font-size:0.8em">Turn</span>'
+        f'<span style="font-size:1.05em;font-weight:800;'
+        f'color:var(--body-text-color,#e2e8f0)">{state.current_turn}</span>'
+        f'<span class="ctx-muted">|</span>'
+        f'<span class="ctx-muted" style="font-size:0.76em">session_scope</span>'
+        f'<code style="font-size:0.8em;background:#1e3a5f;color:#93c5fd;'
+        f'padding:2px 8px;border-radius:5px">{state.current_session_scope}'
+        f'{_ctx_badge("changed") if scope_ch else ""}</code>'
+        f'<span class="ctx-muted">|</span>'
+        f'<span class="ctx-muted" style="font-size:0.76em">city_scope</span>'
+        f'<code style="font-size:0.8em;background:#052e16;color:#86efac;'
+        f'padding:2px 8px;border-radius:5px">{state.current_city_scope or "None"}'
+        f'{_ctx_badge("changed") if city_ch else ""}</code>'
         f'</div>'
     )
 
@@ -432,15 +627,13 @@ def _context_state_panel_html(state, prev_snapshot: dict | None) -> str:
     prev_mobility  = set(prev.get("mobility_constraints", []))
     rows = ""
     for a in (state.allergies or []):
-        badge = _ctx_badge("", "new" if a not in prev_allergies else "")
-        rows += _ctx_row("allergies[ ]", a, badge)
+        rows += _ctx_row("allergies[ ]", a, _ctx_badge("new" if a not in prev_allergies else ""))
     for a in sorted(prev_allergies - set(state.allergies or [])):
         rows += _ctx_row("allergies[ ]", a, removed=True)
     for m in (state.mobility_constraints or []):
-        badge = _ctx_badge("", "new" if m not in prev_mobility else "")
-        rows += _ctx_row("mobility[ ]", m, badge)
+        rows += _ctx_row("mobility[ ]", m, _ctx_badge("new" if m not in prev_mobility else ""))
     if not rows:
-        rows = _ctx_row("allergies", "none", "")
+        rows = _ctx_row("allergies", "none")
     html += _ctx_section("🚫 Allergies & Health",
                          rows, len(state.allergies) + len(state.mobility_constraints))
 
@@ -454,23 +647,22 @@ def _context_state_panel_html(state, prev_snapshot: dict | None) -> str:
     if state.budget_total is not None:
         rows += _ctx_row("budget_total",
                          f"{sym}{state.budget_total:,.2f}",
-                         _ctx_badge("", "new" if bt_new else "changed" if bt_changed else ""),
+                         _ctx_badge("new" if bt_new else "changed" if bt_changed else ""),
                          mono=True)
         rows += _ctx_row("budget_spent",
                          f"{sym}{state.budget_spent:,.2f}",
-                         _ctx_badge("", "changed" if bs_changed and state.budget_spent > 0 else ""),
+                         _ctx_badge("changed" if bs_changed and state.budget_spent > 0 else ""),
                          mono=True)
         rows += _ctx_row("budget_remaining",
                          f"{sym}{state.budget_remaining:,.2f}" if state.budget_remaining else "—",
-                         _ctx_badge("", "changed" if br_changed and state.budget_remaining else ""),
+                         _ctx_badge("changed" if br_changed and state.budget_remaining else ""),
                          mono=True)
         rows += _ctx_row("budget_currency", state.budget_currency, mono=True)
-        # spend log: show latest entry if just changed
         if bs_changed and state.spend_log:
             last = state.spend_log[-1]
-            rows += _ctx_row(f"spend_log[-1]",
+            rows += _ctx_row("spend_log[-1]",
                              f"{last['item']} ({sym}{last['cost']:,.2f}) @ turn {last['turn']}",
-                             _ctx_badge("", "new"), mono=False)
+                             _ctx_badge("new"))
     else:
         rows = _ctx_row("budget_total", "not set")
     html += _ctx_section("💰 Budget", rows)
@@ -479,8 +671,8 @@ def _context_state_panel_html(state, prev_snapshot: dict | None) -> str:
     prev_temporal = {t["description"] for t in prev.get("temporal_constraints", [])}
     rows = ""
     for tc in (state.temporal_constraints or []):
-        badge = _ctx_badge("", "new" if tc.description not in prev_temporal else "")
-        rows += _ctx_row("description", tc.description, badge)
+        rows += _ctx_row("description", tc.description,
+                         _ctx_badge("new" if tc.description not in prev_temporal else ""))
         rows += _ctx_row("datetime_str", tc.datetime_str or "—", mono=True)
         if tc.location:
             rows += _ctx_row("location", tc.location, mono=True)
@@ -494,10 +686,10 @@ def _context_state_panel_html(state, prev_snapshot: dict | None) -> str:
     prev_tech = {t["description"] for t in prev.get("technical_constraints", [])}
     rows = ""
     for tc in (state.technical_constraints or []):
-        badge = _ctx_badge("", "new" if tc.description not in prev_tech else "")
-        rows += _ctx_row("type", tc.constraint_type, mono=True)
-        rows += _ctx_row("description", tc.description, badge)
-        rows += _ctx_row("value", tc.value, mono=True)
+        rows += _ctx_row("type",        tc.constraint_type, mono=True)
+        rows += _ctx_row("description", tc.description,
+                         _ctx_badge("new" if tc.description not in prev_tech else ""))
+        rows += _ctx_row("value",       tc.value, mono=True)
     if not rows:
         rows = _ctx_row("technical_constraints", "none")
     html += _ctx_section("⚙️ Technical Constraints", rows, len(state.technical_constraints))
@@ -506,25 +698,23 @@ def _context_state_panel_html(state, prev_snapshot: dict | None) -> str:
     prev_diet = set(prev.get("dietary_preferences", []))
     rows = ""
     for d in (state.dietary_preferences or []):
-        badge = _ctx_badge("", "new" if d not in prev_diet else "")
-        rows += _ctx_row("dietary[ ]", d, badge)
+        rows += _ctx_row("dietary[ ]", d, _ctx_badge("new" if d not in prev_diet else ""))
     if state.max_activities_per_day is not None:
         changed = prev.get("max_activities_per_day") != state.max_activities_per_day
         is_new  = prev.get("max_activities_per_day") is None
-        rows += _ctx_row("max_activities_per_day",
-                         str(state.max_activities_per_day),
-                         _ctx_badge("", "new" if is_new else "changed" if changed else ""),
+        rows += _ctx_row("max_activities_per_day", str(state.max_activities_per_day),
+                         _ctx_badge("new" if is_new else "changed" if changed else ""),
                          mono=True)
     if state.travel_style:
-        changed = prev.get("travel_style") != state.travel_style
-        is_new  = not prev.get("travel_style")
+        is_new = not prev.get("travel_style")
         rows += _ctx_row("travel_style", state.travel_style,
-                         _ctx_badge("", "new" if is_new else "changed" if changed else ""))
+                         _ctx_badge("new" if is_new else
+                                    "changed" if prev.get("travel_style") != state.travel_style else ""))
     if state.traveler_type:
-        changed = prev.get("traveler_type") != state.traveler_type
-        is_new  = not prev.get("traveler_type")
+        is_new = not prev.get("traveler_type")
         rows += _ctx_row("traveler_type", state.traveler_type,
-                         _ctx_badge("", "new" if is_new else "changed" if changed else ""))
+                         _ctx_badge("new" if is_new else
+                                    "changed" if prev.get("traveler_type") != state.traveler_type else ""))
     if not rows:
         rows = _ctx_row("preferences", "none")
     html += _ctx_section("🎯 Preferences", rows)
@@ -535,66 +725,59 @@ def _context_state_panel_html(state, prev_snapshot: dict | None) -> str:
     for b in (state.bookings or []):
         is_new = b.description not in prev_bookings
         icon   = ("✈" if "flight" in b.description.lower()
-                  else "🏨" if any(w in b.description.lower() for w in ("hotel", "ryokan", "resort", "inn"))
-                  else "🚅" if any(w in b.description.lower() for w in ("train", "shinkansen"))
+                  else "🏨" if any(w in b.description.lower()
+                                   for w in ("hotel", "ryokan", "resort", "inn"))
+                  else "🚅" if any(w in b.description.lower()
+                                   for w in ("train", "shinkansen"))
                   else "📌")
         rows += _ctx_row(f"{icon} description", b.description,
-                         _ctx_badge("", "new" if is_new else ""))
+                         _ctx_badge("new" if is_new else ""))
         rows += _ctx_row("   cost", f"{sym}{b.cost:,.2f}",
-                         _ctx_badge("", "new" if is_new else ""), mono=True)
+                         _ctx_badge("new" if is_new else ""), mono=True)
         rows += _ctx_row("   status", b.status, mono=True)
     if not rows:
         rows = _ctx_row("bookings", "none")
     html += _ctx_section("📋 Bookings", rows, len(state.bookings))
 
-    # ── 7. Destinations & Scope ────────────────────────────────────────
+    # ── 7. Destinations ────────────────────────────────────────────────
     prev_dest = set(prev.get("destination_cities", []))
     rows = ""
     for d in (state.destination_cities or []):
-        badge = _ctx_badge("", "new" if d not in prev_dest else "")
-        rows += _ctx_row("destination_cities[ ]", d, badge)
+        rows += _ctx_row("destination_cities[ ]", d,
+                         _ctx_badge("new" if d not in prev_dest else ""))
     if not rows:
         rows = _ctx_row("destination_cities", "none")
     html += _ctx_section("📍 Destinations", rows, len(state.destination_cities))
 
     # ── Legend ─────────────────────────────────────────────────────────
     legend = (
-        '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;'
-        'padding-top:8px;border-top:1px solid #f1f5f9">'
-        '<span style="font-size:0.72em;color:#6b7280">Legend:</span>'
-        '<span style="background:#D1FAE5;color:#065F46;font-size:0.72em;'
-        'font-weight:700;padding:1px 8px;border-radius:10px">NEW — added this turn</span>'
-        '<span style="background:#FEF3C7;color:#92400E;font-size:0.72em;'
-        'font-weight:700;padding:1px 8px;border-radius:10px">↑ CHANGED — updated this turn</span>'
-        '<span style="font-size:0.72em;color:#9ca3af;'
-        'text-decoration:line-through">removed</span>'
+        '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;'
+        'padding-top:8px;border-top:1px solid var(--border-color-primary,#2d3748)">'
+        '<span class="ctx-muted" style="font-size:0.7em">Legend:</span>'
+        '<span class="ctx-badge-new" style="margin-left:0">NEW — added this turn</span>'
+        '<span class="ctx-badge-changed" style="margin-left:0">↑ CHG — updated this turn</span>'
+        '<span class="ctx-muted" style="font-size:0.7em;text-decoration:line-through">removed</span>'
         '</div>'
     )
-
     return (
-        f'<div style="font-family:monospace;font-size:0.9em;'
-        f'max-height:420px;overflow-y:auto;padding:4px 2px">'
-        f'{html}{legend}</div>'
+        f'<div class="ctx-state-wrap">{html}{legend}</div>'
     )
 
 
-# ── Bypass mode: direct LLM call ──────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# Bypass / direct LLM
+# ─────────────────────────────────────────────────────────────────────────────
 def _run_bypass(user_message: str, session: dict) -> tuple[str, dict]:
     import time as _t
 
     history = session.get("history", [])
-    parts = []
-    for msg in history:
-        role = msg.get("role", "user").capitalize()
-        parts.append(f"{role}: {msg.get('content', '')}")
+    parts   = [f"{m['role'].capitalize()}: {m.get('content','')}" for m in history]
     parts.append(f"User: {user_message}")
     assembled = "\n".join(parts)
 
-    system_prompt = "You are a helpful AI assistant."
-
     t = _t.time()
-    response = _call_llm(system_prompt, assembled)
-    elapsed = int((_t.time() - t) * 1000)
+    response = _call_llm("You are a helpful AI assistant.", assembled)
+    elapsed  = int((_t.time() - t) * 1000)
 
     session["history"].append({"role": "user",      "content": user_message})
     session["history"].append({"role": "assistant", "content": response})
@@ -613,12 +796,10 @@ def _run_bypass(user_message: str, session: dict) -> tuple[str, dict]:
     return response, metrics
 
 
-# ── Chat (generator) ──────────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# Chat generator
+# ─────────────────────────────────────────────────────────────────────────────
 def chat(user_message: str, chat_history: list, session: dict, bypass: bool):
-    """
-    Generator: yields a processing state first, then the final response.
-    Gradio will push each yield as a live update to the browser.
-    """
     if not user_message.strip():
         yield (chat_history, gr.update(),
                gr.update(), gr.update(), gr.update(),
@@ -626,21 +807,18 @@ def chat(user_message: str, chat_history: list, session: dict, bypass: bool):
                gr.update(), session)
         return
 
-    session = dict(session)          # shallow copy so we can mutate freely
+    session = dict(session)
     session["turn_number"] += 1
 
-    # ── 1) Immediately show processing state ──────────────────────
     pending = chat_history + [(user_message, "…")]
     yield (
         pending,
         gr.update(value=_processing_html(bypass), visible=True),
         gr.update(), gr.update(), gr.update(),
         gr.update(), gr.update(), gr.update(),
-        gr.update(),
-        session,
+        gr.update(), session,
     )
 
-    # ── 2) Run the pipeline ───────────────────────────────────────
     if bypass:
         response, metrics = _run_bypass(user_message, session)
         active_state = None
@@ -666,14 +844,11 @@ def chat(user_message: str, chat_history: list, session: dict, bypass: bool):
     ))
 
     final_history = chat_history + [(user_message, clean_response(response))]
-
-    # Build context state diff and advance snapshot
-    prev_snap = session.get("prev_state_snapshot")
-    ctx_html  = _context_state_panel_html(active_state, prev_snap)
+    prev_snap     = session.get("prev_state_snapshot")
+    ctx_html      = _context_state_panel_html(active_state, prev_snap)
     if active_state is not None:
         session["prev_state_snapshot"] = active_state.model_dump()
 
-    # ── 3) Emit final state ───────────────────────────────────────
     yield (
         final_history,
         gr.update(visible=False),
@@ -688,27 +863,29 @@ def chat(user_message: str, chat_history: list, session: dict, bypass: bool):
     )
 
 
-# ── Reset ─────────────────────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# Reset & toggle
+# ─────────────────────────────────────────────────────────────────────────────
 def reset_session(session: dict) -> tuple:
     new = _empty_state()
     ph  = _placeholder_panels()
-    ctx_placeholder = ('<div style="color:#9ca3af;font-size:0.85em;padding:12px;text-align:center">'
+    ctx_placeholder = ('<div class="ctx-muted" style="font-size:0.85em;padding:16px;text-align:center">'
                        'Send a message to see the live context state.</div>')
     return ([], gr.update(visible=False),
             ph[0], ph[1], ph[2], ph[3], ph[4], ph[5],
-            gr.update(value=ctx_placeholder),
-            new)
+            gr.update(value=ctx_placeholder), new)
 
 
-# ── Toggle bypass button ──────────────────────────────────────────────
 def toggle_bypass(current: bool) -> tuple:
     new_val = not current
     if new_val:
-        return new_val, gr.update(value="🔴  Compression OFF  (bypass active)", variant="stop")
-    return new_val, gr.update(value="🟢  Compression ON", variant="primary")
+        return new_val, gr.update(value="🔴  Context Awareness OFF", variant="stop")
+    return new_val, gr.update(value="🟢  Context Awareness ON", variant="primary")
 
 
-# ── Gradio UI ─────────────────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────────────
+# Gradio UI
+# ─────────────────────────────────────────────────────────────────────────────
 with gr.Blocks(
     title="ContextOS — AI Agent Context Compression",
     theme=gr.themes.Soft(),
@@ -718,45 +895,59 @@ with gr.Blocks(
     session_state = gr.State(_empty_state())
     bypass_state  = gr.State(False)
 
-    # Header bar
-    gr.HTML(_header_html())
-
-    ph = _placeholder_panels()
-
-    with gr.Row():
-        # ── Left: Chat (≈65%) ───────────────────────────────────────
-        with gr.Column(scale=13):
-            chatbot = gr.Chatbot(
-                label="AI Agent Chat",
-                height=460,
-                bubble_full_width=False,
-            )
-
-            # Live processing status (hidden until a message is sent)
-            processing_panel = gr.HTML(value="", visible=False)
-
-            with gr.Row():
-                new_chat_btn = gr.Button("🗒 New Session", variant="secondary", scale=1)
-                msg_box = gr.Textbox(
-                    placeholder="Try: 'Plan a trip to Tokyo, budget $3000, allergic to shellfish' or 'My laptop warranty expires March 15th' or 'Building a Python 3.8 app, stdlib only'",
-                    show_label=False,
-                    scale=4,
-                )
-                send_btn = gr.Button("Send →", variant="primary", scale=1)
-
+    # ── Top toolbar: header + ContextOS ON/OFF ─────────────────────────
+    with gr.Row(equal_height=True):
+        with gr.Column(scale=10):
+            gr.HTML(_header_html())
+        with gr.Column(scale=2, min_width=170):
             bypass_btn = gr.Button(
-                "🟢  Compression ON",
+                "🟢  Context Awareness ON",
                 variant="primary",
                 elem_id="bypass-btn",
             )
 
-            gr.HTML(
-                "<div style='text-align:center;color:#9ca3af;font-size:0.78em;margin-top:6px'>"
-                "Powered by ContextOS compression pipeline"
-                "</div>"
+    ph = _placeholder_panels()
+
+    # ── Main two-column layout ─────────────────────────────────────────
+    with gr.Row():
+
+        # ── Left: Chat ───────────────────────────────────────────────
+        with gr.Column(scale=13):
+            chatbot = gr.Chatbot(
+                label="AI Agent Chat",
+                height=450,
+                bubble_full_width=False,
             )
 
-        # ── Right: Dashboard (≈35%) ─────────────────────────────────
+            processing_panel = gr.HTML(value="", visible=False)
+
+            with gr.Row(equal_height=True):
+                new_chat_btn = gr.Button(
+                    "🗒 New Session",
+                    variant="secondary",
+                    scale=1,
+                    min_width=110,
+                    elem_id="new-session-btn",
+                )
+                msg_box = gr.Textbox(
+                    placeholder=(
+                        "Try: 'Plan a trip to Tokyo, $3,000 budget, shellfish allergy'  ·  "
+                        "'Warranty expires March 15th, board meeting Wednesdays'  ·  "
+                        "'Building a Python 3.8 CLI, stdlib only'"
+                    ),
+                    show_label=False,
+                    scale=6,
+                    elem_id="msg-box",
+                )
+                send_btn = gr.Button(
+                    "Send →",
+                    variant="primary",
+                    scale=1,
+                    min_width=80,
+                    elem_id="send-btn",
+                )
+
+        # ── Right: Dashboard ─────────────────────────────────────────
         with gr.Column(scale=7):
             compression_panel  = gr.HTML(value=ph[0])
             token_budget_panel = gr.HTML(value=ph[1])
@@ -765,42 +956,58 @@ with gr.Blocks(
             timing_panel       = gr.HTML(value=ph[4])
             stats_panel        = gr.HTML(value=ph[5])
 
-    # ── Live Context State Inspector ──────────────────────────────────
+    # ── Live Context State Inspector ───────────────────────────────────
     with gr.Accordion(
         "🔍  Live Context State — variable-by-variable tracker with change highlighting",
         open=True,
     ):
         gr.HTML(
-            '<div style="font-size:0.8em;color:#64748b;padding:4px 0 8px 2px">'
+            '<div class="ctx-muted" style="font-size:0.88em;padding:4px 2px 8px 2px">'
             'Every field of <code>ContextState</code> is shown below. '
-            '<span style="background:#D1FAE5;color:#065F46;font-size:0.75em;'
-            'font-weight:700;padding:1px 7px;border-radius:10px">NEW</span> '
+            '<span class="ctx-badge-new" style="margin-left:0">NEW</span> '
             'appears when a constraint is first extracted. '
-            '<span style="background:#FEF3C7;color:#92400E;font-size:0.75em;'
-            'font-weight:700;padding:1px 7px;border-radius:10px">↑ CHANGED</span> '
-            'appears when a value updates. Removed items show as '
-            '<span style="text-decoration:line-through;color:#9ca3af">strikethrough</span>.'
+            '<span class="ctx-badge-changed" style="margin-left:0">↑ CHG</span> '
+            'appears when a value updates. '
+            'Removed items show as <span style="text-decoration:line-through;color:#64748b">strikethrough</span>.'
             '</div>'
         )
         context_state_panel = gr.HTML(
-            value='<div style="color:#9ca3af;font-size:0.85em;padding:12px;text-align:center">'
-                  'Send a message to see the live context state.</div>'
+            value=('<div class="ctx-muted" style="font-size:0.85em;padding:16px;text-align:center">'
+                   'Send a message to see the live context state.</div>')
         )
 
-    # ── Example prompts ───────────────────────────────────────────────
-    gr.Examples(
-        examples=[
-            "I want to plan a 10-day trip to Tokyo and Kyoto. Budget is $4,000 total. "
-            "I'm severely allergic to shellfish. Solo traveler, max 2 activities per day.",
-            "My laptop warranty expires March 15th and I have a board meeting every Wednesday at 2pm.",
-            "Building a Python 3.8 CLI tool, stdlib only, needs to run on Windows.",
-            "Actually, scratch Bali. Let's do Switzerland instead — I want mountains.",
-            "Find me flights to Tokyo",
-        ],
-        inputs=msg_box,
-    )
+    # ── Example prompts — tabbed FAQ with expandable prompts ──────────────
+    with gr.Accordion("💡 Example Prompts", open=True):
+        gr.HTML(
+            '<div class="ctx-muted" style="font-size:0.88em;padding:2px 2px 10px 2px">'
+            'Expand any example to see the full prompt, then click '
+            '<b>↗ Use this prompt</b> to inject it into the chat box.'
+            '</div>'
+        )
+        with gr.Tabs():
+            for tab_label, examples in EXAMPLES.items():
+                with gr.TabItem(tab_label):
+                    for short_name, full_text in examples:
+                        with gr.Accordion(
+                            f"↗  {short_name}",
+                            open=False,
+                            elem_classes=["ctx-ex-acc"],
+                        ):
+                            gr.Markdown(
+                                f"> {full_text}",
+                                elem_classes=["ctx-muted"],
+                            )
+                            inject_btn = gr.Button(
+                                "↗ Use this prompt",
+                                variant="primary",
+                                elem_classes=["ctx-inject-btn"],
+                            )
+                            inject_btn.click(
+                                fn=lambda t=full_text: t,
+                                outputs=[msg_box],
+                            )
 
-    # ── Wiring ────────────────────────────────────────────────────────
+    # ── Wiring ─────────────────────────────────────────────────────────
     _INPUTS  = [msg_box, chatbot, session_state, bypass_state]
     _OUTPUTS = [
         chatbot, processing_panel,
@@ -816,13 +1023,7 @@ with gr.Blocks(
     msg_box.submit(fn=chat, inputs=_INPUTS, outputs=_OUTPUTS).then(
         fn=lambda: "", outputs=msg_box
     )
-
-    new_chat_btn.click(
-        fn=reset_session,
-        inputs=[session_state],
-        outputs=_OUTPUTS,
-    )
-
+    new_chat_btn.click(fn=reset_session, inputs=[session_state], outputs=_OUTPUTS)
     bypass_btn.click(
         fn=toggle_bypass,
         inputs=[bypass_state],
@@ -830,7 +1031,7 @@ with gr.Blocks(
     )
 
 
-# ── Entry point ───────────────────────────────────────────────────────
+# ── Entry point ────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     demo.queue()
     demo.launch(server_name="0.0.0.0", share=True)
